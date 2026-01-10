@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CelerCrea — Create swiftly. Ship clean.</title>
+  <meta name="description" content="CelerCrea builds premium websites, apps, and automation for small businesses. Create swiftly. Ship clean." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0B1020;
+      --panel: rgba(16, 27, 54, .55);
+      --panel-strong: rgba(16, 27, 54, .75);
+      --stroke: rgba(255,255,255,.10);
+      --stroke-strong: rgba(255,255,255,.16);
+      --text: #EAF2FF;
+      --muted: #A8B4D2;
+      --muted2: #7C8AA6;
+
+      --cyan: #35D3FF;
+      --ember: #FF5A3C;
+
+      --shadow: 0 18px 70px rgba(0,0,0,.55);
+      --shadow-soft: 0 12px 40px rgba(0,0,0,.45);
+
+      --radius: 18px;
+      --radius-lg: 26px;
+
+      --max: 1140px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 900px at 20% -10%, rgba(53,211,255,.18), transparent 55%),
+                  radial-gradient(1000px 800px at 90% 5%, rgba(255,90,60,.14), transparent 55%),
+                  radial-gradient(900px 700px at 55% 110%, rgba(155,110,255,.10), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    /* Aurora layer */
+    .aurora{
+      position:fixed; inset:-20%;
+      pointer-events:none;
+      filter: blur(40px);
+      opacity:.55;
+      z-index:-1;
+      background:
+        radial-gradient(closest-side at 30% 30%, rgba(53,211,255,.35), transparent 60%),
+        radial-gradient(closest-side at 70% 35%, rgba(255,90,60,.25), transparent 60%),
+        radial-gradient(closest-side at 55% 75%, rgba(124,58,237,.22), transparent 60%);
+      animation: drift 14s ease-in-out infinite alternate;
+      transform: translate3d(0,0,0);
+    }
+    @keyframes drift{
+      from{ transform: translate(-2%, -1%) scale(1.0) }
+      to{ transform: translate(2%, 1%) scale(1.05) }
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,.85), rgba(11,16,32,.55));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
+    }
+
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      text-decoration:none;
+    }
+    .mark{
+      width:42px; height:42px; border-radius:14px;
+      background:
+        radial-gradient(14px 14px at 28% 28%, rgba(53,211,255,.9), rgba(53,211,255,.0) 65%),
+        radial-gradient(16px 16px at 68% 70%, rgba(255,90,60,.85), rgba(255,90,60,.0) 70%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:-60%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.24), transparent 55%);
+      transform: rotate(12deg);
+      opacity:.7;
+    }
+    .brand b{
+      font-family: "Space Grotesk", Inter, sans-serif;
+      letter-spacing:.2px;
+      font-size:18px;
+    }
+    .brand span{
+      display:block;
+      font-size:12px;
+      color:var(--muted2);
+      margin-top:2px;
+    }
+
+    .links{
+      display:flex; gap:18px; align-items:center;
+    }
+    .links a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      padding:10px 10px;
+      border-radius:12px;
+    }
+    .links a:hover{ color: var(--text); background: rgba(255,255,255,.05); }
+
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow-soft);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.09); }
+    .btn.primary{
+      border-color: rgba(53,211,255,.35);
+      background: linear-gradient(135deg, rgba(53,211,255,.18), rgba(255,90,60,.14));
+    }
+    .btn.primary:hover{ border-color: rgba(53,211,255,.55); }
+
+    .hero{
+      padding:64px 0 26px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: var(--cyan);
+      box-shadow: 0 0 0 6px rgba(53,211,255,.12);
+    }
+
+    h1{
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: clamp(38px, 4.2vw, 56px);
+      line-height:1.05;
+      margin:16px 0 12px;
+      letter-spacing: -0.6px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 58ch;
+      margin:0 0 22px;
+    }
+    .cta-row{
+      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+      margin: 18px 0 18px;
+    }
+    .meta-row{
+      display:flex; gap:14px; flex-wrap:wrap;
+      margin-top:18px;
+      color: var(--muted2);
+      font-size:13px;
+    }
+    .meta-pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .meta-pill i{
+      width:10px; height:10px; border-radius:999px;
+      background: rgba(255,255,255,.18);
+    }
+    .meta-pill i.c{ background: rgba(53,211,255,.55); box-shadow: 0 0 0 6px rgba(53,211,255,.10); }
+    .meta-pill i.e{ background: rgba(255,90,60,.55); box-shadow: 0 0 0 6px rgba(255,90,60,.10); }
+
+    .panel{
+      border:1px solid var(--stroke);
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    /* Mock dashboard card */
+    .mock{
+      padding:18px;
+      overflow:hidden;
+      position:relative;
+      isolation:isolate;
+    }
+    .mock:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(53,211,255,.22), transparent 58%),
+        radial-gradient(circle at 70% 55%, rgba(255,90,60,.18), transparent 60%);
+      filter: blur(26px);
+      opacity:.9;
+      z-index:-1;
+      transform: translate3d(0,0,0);
+    }
+    .mock-top{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .mock-title{
+      display:flex; gap:10px; align-items:center;
+      font-weight:700;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      letter-spacing:.2px;
+    }
+    .chips{ display:flex; gap:8px; }
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .mock-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .stat{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .stat b{ display:block; font-size:18px; letter-spacing:-.2px; }
+    .stat span{ display:block; font-size:12px; color: var(--muted2); margin-top:4px; }
+
+    .pipeline{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    .pipe-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+    .pipe-row small{ color: var(--muted2); }
+    .bar{
+      height:10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      position:relative;
+      overflow:hidden;
+    }
+    .bar > span{
+      position:absolute; inset:0;
+      width: 0%;
+      border-radius:999px;
+      background: linear-gradient(90deg, rgba(53,211,255,.85), rgba(255,90,60,.85));
+      box-shadow: 0 0 24px rgba(53,211,255,.25);
+      transition: width 1.1s cubic-bezier(.2,.8,.2,1);
+    }
+    .ticks{
+      display:flex; justify-content:space-between;
+      margin-top:10px;
+      color: rgba(234,242,255,.72);
+      font-size:12px;
+    }
+    .ticks span{ opacity:.85; }
+    .ticks span.active{ color: var(--text); }
+
+    /* Sections */
+    section{ padding: 40px 0; }
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    h2{
+      font-family:"Space Grotesk", Inter, sans-serif;
+      letter-spacing:-.3px;
+      margin:0;
+      font-size:28px;
+    }
+    .lead{ color: var(--muted); max-width: 70ch; margin: 8px 0 0; }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .card{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      letter-spacing:.1px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tagrow{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .tag{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(234,242,255,.82);
+    }
+
+    .work-card{
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .thumb{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(135deg, rgba(53,211,255,.12), rgba(255,90,60,.10)),
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.10), transparent 55%),
+        rgba(255,255,255,.03);
+      height: 160px;
+      position:relative;
+      overflow:hidden;
+    }
+    .thumb:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.16), transparent 55%);
+      transform: rotate(8deg);
+      opacity:.8;
+    }
+    .work-card .row{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+    }
+    .work-card .row b{ font-family:"Space Grotesk", Inter, sans-serif; letter-spacing:.1px; }
+    .mini{ color: var(--muted2); font-size: 12px; margin-top: 2px; }
+    .link{
+      color: var(--text);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(234,242,255,.35);
+      padding-bottom:2px;
+    }
+    .link:hover{ border-bottom-color: rgba(53,211,255,.65); }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .step{
+      padding:16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .step .n{
+      width:28px; height:28px; border-radius:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-weight:700;
+      margin-bottom:10px;
+      font-size:13px;
+    }
+    .step p{ margin:0; color:var(--muted); font-size:14px; }
+
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .price{
+      padding:18px;
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
+    }
+    .price.featured{
+      border-color: rgba(53,211,255,.28);
+      background: linear-gradient(180deg, rgba(53,211,255,.07), rgba(255,255,255,.03));
+    }
+    .price h3{ margin:0 0 6px; font-family:"Space Grotesk", Inter, sans-serif; }
+    .price .amt{ font-size:28px; font-weight:800; letter-spacing:-.3px; margin:10px 0 6px; }
+    .price ul{ margin:12px 0 0; padding:0 0 0 18px; color: var(--muted); }
+    .price li{ margin:8px 0; font-size:14px; }
+    .badge{
+      position:absolute; top:14px; right:14px;
+      font-size:11px; padding:7px 10px; border-radius:999px;
+      border:1px solid rgba(53,211,255,.30);
+      background: rgba(53,211,255,.10);
+      color: rgba(234,242,255,.92);
+    }
+
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:700;
+      font-family:"Space Grotesk", Inter, sans-serif;
+      list-style:none;
+    }
+    details summary::-webkit-details-marker{ display:none; }
+    details p{ margin:10px 0 0; color: var(--muted); font-size:14px; }
+
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .form{
+      padding:18px;
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    label{ display:block; font-size:12px; color: var(--muted2); margin: 10px 0 6px; }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(11,16,32,.55);
+      color: var(--text);
+      outline:none;
+      font: inherit;
+    }
+    textarea{ min-height: 112px; resize: vertical; }
+    input:focus, textarea:focus{
+      border-color: rgba(53,211,255,.45);
+      box-shadow: 0 0 0 4px rgba(53,211,255,.12);
+    }
+
+    footer{
+      padding: 24px 0 40px;
+      color: var(--muted2);
+      font-size:13px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 20px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* Reveal animation */
+    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.on{ opacity:1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .mock-grid{ grid-template-columns: repeat(3, 1fr); }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .aurora{ animation:none; }
+      .card, .btn{ transition:none; }
+      .reveal{ transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <b>CelerCrea</b>
+            <span>Create swiftly. Ship clean.</span>
+          </div>
+        </a>
+
+        <div class="links" role="navigation">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Packages</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <a class="btn primary" href="#contact" aria-label="Start a project">
+          Start a project →
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="kicker"><span class="dot"></span> Web • Apps • Automation (small-business friendly)</div>
+
+            <h1>Premium builds, done fast.<br/>No chaos. No fluff.</h1>
+            <p class="sub">
+              CelerCrea designs and develops modern websites, web apps, and automation that look premium,
+              load fast, and convert. You get clean execution and a process that doesn’t waste your time.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn primary" href="#work">See work →</a>
+              <a class="btn" href="#contact">Get a quote</a>
+              <a class="btn" href="#services" style="background:rgba(255,255,255,.04);">What I build</a>
+            </div>
+
+            <div class="meta-row" aria-label="Highlights">
+              <div class="meta-pill"><i class="c"></i> Fast turnaround</div>
+              <div class="meta-pill"><i class="e"></i> SEO + performance</div>
+              <div class="meta-pill"><i></i> Secure-by-default</div>
+              <div class="meta-pill"><i></i> Mobile-first</div>
+            </div>
+          </div>
+
+          <!-- MOCK PANEL -->
+          <div class="panel mock reveal" aria-label="Preview dashboard">
+            <div class="mock-top">
+              <div class="mock-title">
+                <span style="width:10px;height:10px;border-radius:999px;background:rgba(53,211,255,.7);box-shadow:0 0 0 6px rgba(53,211,255,.10)"></span>
+                Project Console
+              </div>
+              <div class="chips">
+                <div class="chip">Performance</div>
+                <div class="chip">SEO</div>
+                <div class="chip">Security</div>
+              </div>
+            </div>
+
+            <div class="mock-grid">
+              <div class="stat">
+                <b>95+</b>
+                <span>Lighthouse target</span>
+              </div>
+              <div class="stat">
+                <b>&lt; 1.0s</b>
+                <span>Perceived load</span>
+              </div>
+              <div class="stat">
+                <b>Clean</b>
+                <span>Modern UI system</span>
+              </div>
+            </div>
+
+            <div class="pipeline" aria-label="Build pipeline">
+              <div class="pipe-row">
+                <b style="font-family:'Space Grotesk',Inter,sans-serif;">Build → Test → Deploy</b>
+                <small>live preview</small>
+              </div>
+              <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
+              <div class="ticks" aria-hidden="true">
+                <span class="active">Design</span>
+                <span class="active">Build</span>
+                <span>QA</span>
+                <span>Launch</span>
+              </div>
+              <div style="margin-top:12px; color:var(--muted); font-size:13px;">
+                Deliverables are tracked, predictable, and versioned — so you always know what’s next.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDIBILITY STRIP -->
+    <section style="padding-top:10px;">
+      <div class="wrap reveal">
+        <div class="panel" style="padding:14px 16px; border-radius:18px;">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; color:rgba(234,242,255,.85); font-size:13px;">
+            <span class="tag">Mobile-first</span>
+            <span class="tag">Fast loading</span>
+            <span class="tag">SEO-ready</span>
+            <span class="tag">Accessible UI</span>
+            <span class="tag">Secure builds</span>
+            <span class="tag">Clean handoff</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>What I build</h2>
+            <p class="lead">High-quality builds for small businesses that want premium results without enterprise nonsense.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card reveal">
+            <h3>Websites that convert</h3>
+            <p>Premium, modern marketing sites with speed, SEO fundamentals, and clean CTA flow.</p>
+            <div class="tagrow">
+              <span class="tag">Design system</span><span class="tag">Performance</span><span class="tag">SEO</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Web apps & dashboards</h3>
+            <p>Portals, internal tools, booking systems, admin panels — built to scale and stay maintainable.</p>
+            <div class="tagrow">
+              <span class="tag">Auth-ready</span><span class="tag">CRUD</span><span class="tag">APIs</span>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Automation & integrations</h3>
+            <p>Forms → emails → CRM → reporting. Reduce busywork and make your business run smoother.</p>
+            <div class="tagrow">
+              <span class="tag">Workflows</span><span class="tag">Zap/Make</span><span class="tag">Custom scripts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Featured work</h2>
+            <p class="lead">Swap these “spec projects” with real client case studies as you book work.</p>
+          </div>
+          <a class="btn" href="#contact">Want something like this? →</a>
+        </div>
+
+        <div class="grid-3">
+          <div class="card work-card reveal">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="row">
+              <div>
+                <b>Trade business redesign</b>
+                <div class="mini">Before/after, speed improvements</div>
+              </div>
+              <a class="link" href="#contact">Request demo</a>
+            </div>
+            <p>Modern layout, service pages, lead form, and fast-loading media.</p>
+          </div>
+
+          <div class="card work-card reveal">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="row">
+              <div>
+                <b>Appointment + intake flow</b>
+                <div class="mini">Automation + email confirmations</div>
+              </div>
+              <a class="link" href="#contact">Request demo</a>
+            </div>
+            <p>Reduced back-and-forth with automated scheduling + follow-ups.</p>
+          </div>
+
+          <div class="card work-card reveal">
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="row">
+              <div>
+                <b>Client portal concept</b>
+                <div class="mini">Auth + dashboard UI</div>
+              </div>
+              <a class="link" href="#contact">Request demo</a>
+            </div>
+            <p>Clean dashboards, role-based access, and scalable structure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>How we ship clean</h2>
+            <p class="lead">Fast doesn’t mean sloppy. You get a simple process with clear milestones.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="n">1</div>
+            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Discover</h3>
+            <p>Goals, audience, offer, and what “success” means for your business.</p>
+          </div>
+          <div class="step reveal">
+            <div class="n">2</div>
+            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Design</h3>
+            <p>Layout + style system. You approve direction before heavy build starts.</p>
+          </div>
+          <div class="step reveal">
+            <div class="n">3</div>
+            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Build</h3>
+            <p>Modern frontend, clean structure, and performance-first decisions.</p>
+          </div>
+          <div class="step reveal">
+            <div class="n">4</div>
+            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Launch</h3>
+            <p>QA + handoff. Optional hosting/maintenance so it stays fast and secure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Packages</h2>
+            <p class="lead">Simple starting points. Final quotes depend on scope, content, and integrations.</p>
+          </div>
+        </div>
+
+        <div class="pricing">
+          <div class="price reveal">
+            <h3>Starter Site</h3>
+            <div class="amt">From $___</div>
+            <div class="mini">One-page or small site, fast launch</div>
+            <ul>
+              <li>Premium design + mobile-first</li>
+              <li>Contact/lead capture</li>
+              <li>Basic SEO + performance</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a class="btn" href="#contact">Get quote</a>
+            </div>
+          </div>
+
+          <div class="price featured reveal">
+            <div class="badge">Most popular</div>
+            <h3>Growth Site</h3>
+            <div class="amt">From $___</div>
+            <div class="mini">Service pages + conversion focus</div>
+            <ul>
+              <li>Multiple pages + sections</li>
+              <li>Copy guidance + UX flow</li>
+              <li>Analytics + tracking setup</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a class="btn primary" href="#contact">Get quote →</a>
+            </div>
+          </div>
+
+          <div class="price reveal">
+            <h3>App / Automation</h3>
+            <div class="amt">From $___</div>
+            <div class="mini">Dashboards, portals, workflows</div>
+            <ul>
+              <li>Auth-ready architecture</li>
+              <li>Integrations + automation</li>
+              <li>Maintenance option</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a class="btn" href="#contact">Discuss scope</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ + CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Let’s build something clean</h2>
+            <p class="lead">Tell me what you’re trying to launch. I’ll reply with next steps + a quote range.</p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="form reveal">
+            <form onsubmit="event.preventDefault(); alert('Form demo — wire this to email/CRM later.');">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name" required>
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+
+              <label for="type">What do you need?</label>
+              <input id="type" name="type" placeholder="Website / App / Automation">
+
+              <label for="msg">Project details</label>
+              <textarea id="msg" name="msg" placeholder="What are you building? Timeline? Any links?"></textarea>
+
+              <div style="display:flex; gap:10px; align-items:center; margin-top:14px; flex-wrap:wrap;">
+                <button class="btn primary" type="submit">Send inquiry →</button>
+                <span class="mini">Typical response: within 24 hours</span>
+              </div>
+            </form>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <details class="reveal">
+              <summary>Do you only work locally?</summary>
+              <p>Nope — remote-first. We can run the whole project via email, calls, and shared previews.</p>
+            </details>
+            <details class="reveal">
+              <summary>Can you host and maintain the site?</summary>
+              <p>Yes. I can host, monitor, update, and keep performance/security tight so you don’t think about it.</p>
+            </details>
+            <details class="reveal">
+              <summary>What do you need from me to start?</summary>
+              <p>Basic goals, services/products, any branding you already have, and examples of sites you like.</p>
+            </details>
+
+            <div class="panel reveal" style="padding:18px; border-radius:20px;">
+              <h3 style="margin:0 0 8px; font-family:'Space Grotesk',Inter,sans-serif;">Quick credibility block</h3>
+              <p style="margin:0; color:var(--muted); font-size:14px;">
+                Replace this with your real bio: “IT Director + developer. I build clean systems and ship fast.”
+                Add: location (optional), tools (optional), and one strong sentence about results.
+              </p>
+              <div class="tagrow" style="margin-top:12px;">
+                <span class="tag">Fast</span><span class="tag">Clean</span><span class="tag">Reliable</span><span class="tag">Modern UI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>© <span id="year"></span> <b style="color:rgba(234,242,255,.9)">CelerCrea</b>. Create swiftly. Ship clean.</div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="link" href="#services">Services</a>
+            <a class="link" href="#work">Work</a>
+            <a class="link" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Progress bar animation
+    const bar = document.getElementById("progressBar");
+    requestAnimationFrame(() => { bar.style.width = "64%"; });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const els = Array.from(document.querySelectorAll(".reveal"));
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
