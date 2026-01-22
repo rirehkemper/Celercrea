@@ -930,57 +930,62 @@
     }, { threshold: 0.12 });
     els.forEach(el=>io.observe(el));
 
-    // Static form -> mailto draft (opens email composer; user still must click Send)
-    document.getElementById("quoteForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
+<script>
+  // ... keep your progress bar, year, reveal code above ...
 
-      const name  = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const type  = document.getElementById("type").value.trim();
-      const msg   = document.getElementById("msg").value.trim();
+  document.getElementById("quoteForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      const subject = encodeURIComponent(
-        `CelerCrea inquiry — ${type || "Project request"} — ${name || "No name"}`
-      );
+    const form = e.currentTarget;
+    const status = document.getElementById("formStatus");
 
-      const bodyText =
-`Name: ${name || "(not provided)"}
-Email: ${email || "(not provided)"}
-Need: ${type || "(not specified)"}
+    const payload = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      type: document.getElementById("type").value.trim(),
+      msg: document.getElementById("msg").value.trim(),
+      company: "" // honeypot field (we'll add a hidden input below)
+    };
 
-Details:
-${msg || "(none provided)"}
-`;
+    // UI
+    status.style.display = "block";
+    status.textContent = "Sending…";
 
-      const body = encodeURIComponent(bodyText);
+    try {
+      const resp = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-      // ✅ Define BEFORE using it anywhere
-      const mailtoUrl = `mailto:hello@celercrea.com?subject=${subject}&body=${body}`;
+      const data = await resp.json().catch(() => ({}));
 
-      // Status + fallback link
-      const status = document.getElementById("formStatus");
-      if (status) {
-        status.style.display = "block";
-        status.innerHTML =
-          `If your email app didn’t open, click: <a class="link" href="${mailtoUrl}">Email hello@celercrea.com</a><br>` +
-          `Tip: the email is a draft — you still need to press “Send”.`;
+      if (!resp.ok || !data.ok) {
+        throw new Error(data.error || "Something went wrong.");
       }
 
-      // Clipboard copy (best-effort)
-      try {
-        if (navigator.clipboard?.writeText) {
-          await navigator.clipboard.writeText(bodyText);
-        }
-      } catch (_) {}
+      status.textContent = "Sent. ✅ I’ll reply soon.";
+      form.reset();
+    } catch (err) {
+      // Fallback: show a mailto link if API fails
+      const subject = encodeURIComponent(`CelerCrea inquiry — ${payload.type || "Project request"} — ${payload.name}`);
+      const body = encodeURIComponent(
+`Name: ${payload.name}
+Email: ${payload.email}
+Need: ${payload.type || "(not specified)"}
 
-      // Trigger mail client (often more reliable than window.location)
-      const a = document.createElement("a");
-      a.href = mailtoUrl;
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-  </script>
+Details:
+${payload.msg || "(none provided)"}`
+      );
+      const mailtoUrl = `mailto:hello@celercrea.com?subject=${subject}&body=${body}`;
+
+      status.innerHTML =
+        `Couldn’t send automatically. Your browser/network blocked it.<br>` +
+        `Click to email instead: <a class="link" href="${mailtoUrl}">Email hello@celercrea.com</a>`;
+    }
+  });
+</script>
+
 </body>
 </html>
+
