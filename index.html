@@ -48,7 +48,6 @@
       overflow-x:hidden;
     }
 
-    /* Background layers */
     .aurora{
       position:fixed; inset:-20%;
       pointer-events:none;
@@ -158,10 +157,7 @@
     }
     .btn.primary:hover{ border-color: rgba(53,211,255,.55); }
 
-    .hero{
-      padding:64px 0 26px;
-      position:relative;
-    }
+    .hero{ padding:64px 0 26px; position:relative; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -191,27 +187,10 @@
       margin:16px 0 12px;
       letter-spacing: -0.6px;
     }
-    .sub{
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 62ch;
-      margin:0 0 10px;
-    }
-    .forwho{
-      color: rgba(234,242,255,.78);
-      font-size: 14px;
-      margin: 0 0 22px;
-    }
-    .cta-row{
-      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
-      margin: 18px 0 18px;
-    }
-    .meta-row{
-      display:flex; gap:14px; flex-wrap:wrap;
-      margin-top:18px;
-      color: var(--muted2);
-      font-size:13px;
-    }
+    .sub{ color: var(--muted); font-size: 16px; max-width: 62ch; margin:0 0 10px; }
+    .forwho{ color: rgba(234,242,255,.78); font-size: 14px; margin: 0 0 22px; }
+    .cta-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin: 18px 0 18px; }
+    .meta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:18px; color: var(--muted2); font-size:13px; }
     .meta-pill{
       display:inline-flex; gap:10px; align-items:center;
       padding:10px 12px;
@@ -219,10 +198,7 @@
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
     }
-    .meta-pill i{
-      width:10px; height:10px; border-radius:999px;
-      background: rgba(255,255,255,.18);
-    }
+    .meta-pill i{ width:10px; height:10px; border-radius:999px; background: rgba(255,255,255,.18); }
     .meta-pill i.c{ background: rgba(53,211,255,.55); box-shadow: 0 0 0 6px rgba(53,211,255,.10); }
     .meta-pill i.e{ background: rgba(255,90,60,.55); box-shadow: 0 0 0 6px rgba(255,90,60,.10); }
 
@@ -233,7 +209,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* Mock dashboard card */
     .mock{
       padding:18px;
       overflow:hidden;
@@ -251,10 +226,7 @@
       z-index:-1;
       transform: translate3d(0,0,0);
     }
-    .mock-top{
-      display:flex; align-items:center; justify-content:space-between;
-      margin-bottom:14px;
-    }
+    .mock-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
     .mock-title{
       display:flex; gap:10px; align-items:center;
       font-weight:700;
@@ -320,7 +292,6 @@
     .ticks span{ opacity:.85; }
     .ticks span.active{ color: var(--text); }
 
-    /* Sections */
     section{ padding: 40px 0; }
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between;
@@ -334,16 +305,8 @@
       font-size:28px;
     }
     .lead{ color: var(--muted); max-width: 70ch; margin: 8px 0 0; }
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .grid-2{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:14px;
-    }
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    .grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
     .card{
       padding:18px;
       border-radius: var(--radius);
@@ -362,15 +325,8 @@
       font-family:"Space Grotesk", Inter, sans-serif;
       letter-spacing:.1px;
     }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .tagrow{
-      display:flex; gap:8px; flex-wrap:wrap;
-      margin-top:12px;
-    }
+    .card p{ margin:0; color: var(--muted); font-size: 14px; }
+    .tagrow{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
     .tag{
       font-size:12px;
       padding:7px 10px;
@@ -380,9 +336,7 @@
       color: rgba(234,242,255,.82);
     }
 
-    .work-card{
-      display:flex; flex-direction:column; gap:12px;
-    }
+    .work-card{ display:flex; flex-direction:column; gap:12px; }
     .thumb{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
@@ -401,9 +355,7 @@
       transform: rotate(8deg);
       opacity:.8;
     }
-    .work-card .row{
-      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
-    }
+    .work-card .row{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
     .work-card .row b{ font-family:"Space Grotesk", Inter, sans-serif; letter-spacing:.1px; }
     .mini{ color: var(--muted2); font-size: 12px; margin-top: 2px; }
     .link{
@@ -414,11 +366,7 @@
     }
     .link:hover{ border-bottom-color: rgba(53,211,255,.65); }
 
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:14px;
-    }
+    .steps{ display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; }
     .step{
       padding:16px;
       border-radius: 18px;
@@ -436,11 +384,7 @@
     }
     .step p{ margin:0; color:var(--muted); font-size:14px; }
 
-    .pricing{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
+    .pricing{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
     .price{
       padding:18px;
       border-radius: 20px;
@@ -521,11 +465,9 @@
       align-items:center;
     }
 
-    /* Reveal animation */
     .reveal{ opacity:0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.on{ opacity:1; transform: translateY(0); }
 
-    /* Responsive */
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
       .mock-grid{ grid-template-columns: repeat(3, 1fr); }
@@ -537,7 +479,6 @@
       .links{ display:none; }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .aurora{ animation:none; }
       .card, .btn{ transition:none; }
@@ -573,7 +514,6 @@
         <a class="btn primary" href="#contact" aria-label="Get a quote">
           Get a quote →
         </a>
-        <a href="mailto:hello@celercrea.com">Email test</a>
       </nav>
     </div>
   </header>
@@ -914,9 +854,11 @@
 
               <div style="display:flex; gap:10px; align-items:center; margin-top:14px; flex-wrap:wrap;">
                 <button class="btn primary" type="submit">Send inquiry →</button>
-                <div id="formStatus" class="mini" style="margin-top:10px; display:none;"></div>
                 <span class="mini">Typical response: within 24 hours</span>
               </div>
+
+              <div id="formStatus" class="mini" style="margin-top:10px; display:none;"></div>
+
               <div class="mini" style="margin-top:10px;">
                 (Static site note: this opens an email draft for now. I’ll wire up a real form/CRM next.)
               </div>
@@ -941,10 +883,9 @@
               <h3 style="margin:0 0 8px; font-family:'Space Grotesk',Inter,sans-serif;">About CelerCrea</h3>
               <p style="margin:0; color:var(--muted); font-size:14px;">
                 I’m Allen, a developer and IT Director focused on clean builds, secure defaults, and predictable delivery.
-                If you want premium work without the agency overhead or the chaos, you’re in the right place. I'll help 
-                make your apps or websites become more than a dream, I can even implement A.I.!  
+                If you want premium work without the agency overhead or the chaos, you’re in the right place. I'll help
+                make your apps or websites become more than a dream, I can even implement A.I.!
               </p>
-              <a class="btn" href="mailto:hello@celercrea.com">Email test</a>
 
               <div class="tagrow" style="margin-top:12px;">
                 <span class="tag">Security-first</span><span class="tag">Performance</span><span class="tag">Modern UI</span><span class="tag">Remote-first</span>
@@ -989,32 +930,57 @@
     }, { threshold: 0.12 });
     els.forEach(el=>io.observe(el));
 
-    // Static form -> mailto draft (better than an alert, still no backend)
-    document.getElementById("quoteForm").addEventListener("submit", (e) => {
+    // Static form -> mailto draft (opens email composer; user still must click Send)
+    document.getElementById("quoteForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const type = document.getElementById("type").value.trim();
-      const msg  = document.getElementById("msg").value.trim();
 
-      const subject = encodeURIComponent(`CelerCrea inquiry — ${type || "Project request"} — ${name}`);
-      const body = encodeURIComponent(
-`Name: ${name}
-Email: ${email}
+      const name  = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const type  = document.getElementById("type").value.trim();
+      const msg   = document.getElementById("msg").value.trim();
+
+      const subject = encodeURIComponent(
+        `CelerCrea inquiry — ${type || "Project request"} — ${name || "No name"}`
+      );
+
+      const bodyText =
+`Name: ${name || "(not provided)"}
+Email: ${email || "(not provided)"}
 Need: ${type || "(not specified)"}
 
 Details:
-${msg || "(none provided)"}`
-      );
-    const status = document.getElementById("formStatus");
-    status.style.display = "block";
-    status.innerHTML = `If your email app didn’t open, click: <a class="link" href="${mailtoUrl}">Email hello@celercrea.com</a>`;
-     window.location.href = `mailto:hello@celercrea.com?subject=${subject}&body=${body}`;
+${msg || "(none provided)"}
+`;
+
+      const body = encodeURIComponent(bodyText);
+
+      // ✅ Define BEFORE using it anywhere
+      const mailtoUrl = `mailto:hello@celercrea.com?subject=${subject}&body=${body}`;
+
+      // Status + fallback link
+      const status = document.getElementById("formStatus");
+      if (status) {
+        status.style.display = "block";
+        status.innerHTML =
+          `If your email app didn’t open, click: <a class="link" href="${mailtoUrl}">Email hello@celercrea.com</a><br>` +
+          `Tip: the email is a draft — you still need to press “Send”.`;
+      }
+
+      // Clipboard copy (best-effort)
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(bodyText);
+        }
+      } catch (_) {}
+
+      // Trigger mail client (often more reliable than window.location)
+      const a = document.createElement("a");
+      a.href = mailtoUrl;
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
     });
   </script>
 </body>
 </html>
-
-
-
-
