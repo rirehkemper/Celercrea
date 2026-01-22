@@ -1,11 +1,20 @@
 // /functions/api/contact.js
-export async function onRequestPost(context) {
+export async function onRequest(context) {
   const { request, env } = context;
 
-  // ---- Basic CORS (adjust origin if you want strict) ----
-  const origin = request.headers.get("Origin") || "*";
+  // ---- CORS (restrict to your domain if possible) ----
+  const origin = request.headers.get("Origin") || "";
+  const allowedOrigins = [
+    "https://celercrea.com",
+    "https://www.celercrea.com",
+    // add your Pages preview domain if you test there:
+    // "https://YOUR-PAGES-SUBDOMAIN.pages.dev",
+  ];
+
+  const corsOrigin = allowedOrigins.includes(origin) ? origin : "https://celercrea.com";
+
   const corsHeaders = {
-    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Origin": corsOrigin,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Vary": "Origin",
@@ -25,8 +34,28 @@ export async function onRequestPost(context) {
   }
 
   try {
+    // ---- Env sanity checks ----
+    if (!env.RESEND_API_KEY) {
+      return new Response(JSON.stringify({ ok: false, error: "Missing RESEND_API_KEY" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (!env.TO_EMAIL) {
+      return new Response(JSON.stringify({ ok: false, error: "Missing TO_EMAIL" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (!env.FROM_EMAIL) {
+      return new Response(JSON.stringify({ ok: false, error: "Missing FROM_EMAIL" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const contentType = request.headers.get("Content-Type") || "";
-    if (!contentType.includes("application/json")) {
+    if (!contentType.toLowerCase().includes("application/json")) {
       return new Response(JSON.stringify({ ok: false, error: "Expected JSON" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -35,7 +64,7 @@ export async function onRequestPost(context) {
 
     const data = await request.json();
 
-    // Honeypot (add an invisible field on frontend named "company")
+    // Honeypot (frontend adds hidden field named "company")
     if (data.company && String(data.company).trim().length > 0) {
       // Pretend success; silently drop bots
       return new Response(JSON.stringify({ ok: true }), {
@@ -44,10 +73,10 @@ export async function onRequestPost(context) {
       });
     }
 
-    const name = (data.name || "").trim();
-    const email = (data.email || "").trim();
-    const type = (data.type || "").trim();
-    const msg = (data.msg || "").trim();
+    const name = String(data.name || "").trim();
+    const email = String(data.email || "").trim();
+    const type = String(data.type || "").trim();
+    const msg = String(data.msg || "").trim();
 
     // Basic validation
     if (!name || !email) {
@@ -56,8 +85,18 @@ export async function onRequestPost(context) {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+
+    // Lightweight email regex (good enough for forms)
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return new Response(JSON.stringify({ ok: false, error: "Invalid email format." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // Optional: require some message content
+    if (!msg && !type) {
+      return new Response(JSON.stringify({ ok: false, error: "Please include a project type or some details." }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -78,9 +117,6 @@ ${msg || "(none provided)"}
 `;
 
     // ---- Send email via Resend ----
-    // env.RESEND_API_KEY is set in Cloudflare Pages settings
-    // env.TO_EMAIL should be "hello@celercrea.com" (or your real inbox)
-    // env.FROM_EMAIL must be a verified sender in Resend (e.g. "CelerCrea <no-reply@celercrea.com>")
     const resendResp = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -88,17 +124,23 @@ ${msg || "(none provided)"}
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: env.FROM_EMAIL,
-        to: env.TO_EMAIL,
-        reply_to: email, // so you can hit "Reply" and it goes to the client
+        from: env.FROM_EMAIL,               // must be a verified sender in Resend
+        to: [env.TO_EMAIL],                 // safest as array
         subject,
         text: textBody,
+        // Resend API is picky depending on route; sending both avoids "why isn't reply-to working?"
+        reply_to: email,
+        replyTo: email,
       }),
     });
 
     if (!resendResp.ok) {
       const errText = await resendResp.text().catch(() => "");
-      return new Response(JSON.stringify({ ok: false, error: "Email send failed", detail: errText }), {
+      return new Response(JSON.stringify({
+        ok: false,
+        error: "Email send failed",
+        detail: errText || "Unknown Resend error",
+      }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
