@@ -67,26 +67,6 @@
       to{ transform: translate(2%, 1%) scale(1.05) }
     }
 
-    .matrix{
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -2;
-      opacity: .35;
-      background:
-        linear-gradient(to right, rgba(53,211,255,.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(53,211,255,.05) 1px, transparent 1px),
-        repeating-linear-gradient(
-          to bottom,
-          rgba(255,255,255,.03),
-          rgba(255,255,255,.03) 1px,
-          transparent 2px,
-          transparent 6px
-        );
-      background-size: 48px 48px, 48px 48px, auto;
-      mix-blend-mode: screen;
-    }
-
     .matrixGlow{
       position: fixed;
       inset: -10%;
@@ -934,6 +914,7 @@
 
               <div style="display:flex; gap:10px; align-items:center; margin-top:14px; flex-wrap:wrap;">
                 <button class="btn primary" type="submit">Send inquiry →</button>
+                <div id="formStatus" class="mini" style="margin-top:10px; display:none;"></div>
                 <span class="mini">Typical response: within 24 hours</span>
               </div>
               <div class="mini" style="margin-top:10px;">
@@ -963,6 +944,8 @@
                 If you want premium work without the agency overhead or the chaos, you’re in the right place. I'll help 
                 make your apps or websites become more than a dream, I can even implement A.I.!  
               </p>
+              <a class="btn" href="mailto:hello@celercrea.com">Email test</a>
+
               <div class="tagrow" style="margin-top:12px;">
                 <span class="tag">Security-first</span><span class="tag">Performance</span><span class="tag">Modern UI</span><span class="tag">Remote-first</span>
               </div>
@@ -1023,13 +1006,15 @@ Need: ${type || "(not specified)"}
 Details:
 ${msg || "(none provided)"}`
       );
-
-      // TODO: Replace with real form endpoint later (Workers, Formspark, etc.)
+    const status = document.getElementById("formStatus");
+    status.style.display = "block";
+    status.innerHTML = `If your email app didn’t open, click: <a class="link" href="${mailtoUrl}">Email hello@celercrea.com</a>`;
      window.location.href = `mailto:hello@celercrea.com?subject=${subject}&body=${body}`;
     });
   </script>
 </body>
 </html>
+
 
 
 
