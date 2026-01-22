@@ -50,6 +50,44 @@
 
     /* Aurora layer */
     .aurora{
+      /* Matrix vibe layer (subtle grid + scanlines) */
+.matrix{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  opacity: .35;
+  background:
+    /* vertical grid */
+    linear-gradient(to right, rgba(53,211,255,.07) 1px, transparent 1px),
+    /* horizontal grid */
+    linear-gradient(to bottom, rgba(53,211,255,.05) 1px, transparent 1px),
+    /* scanlines */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.03),
+      rgba(255,255,255,.03) 1px,
+      transparent 2px,
+      transparent 6px
+    );
+  background-size: 48px 48px, 48px 48px, auto;
+  mix-blend-mode: screen;
+  filter: blur(.0px);
+}
+
+.matrixGlow{
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  z-index: -3;
+  opacity: .55;
+  background:
+    radial-gradient(closest-side at 20% 10%, rgba(53,211,255,.22), transparent 55%),
+    radial-gradient(closest-side at 80% 15%, rgba(53,211,255,.14), transparent 55%),
+    radial-gradient(closest-side at 55% 85%, rgba(53,211,255,.10), transparent 55%);
+  filter: blur(50px);
+}
+
       position:fixed; inset:-20%;
       pointer-events:none;
       filter: blur(40px);
@@ -926,3 +964,4 @@
   </script>
 </body>
 </html>
+
