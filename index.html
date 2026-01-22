@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CelerCrea — Create swiftly. Ship clean.</title>
-  <meta name="description" content="CelerCrea builds premium websites, apps, and automation for small businesses. Create swiftly. Ship clean." />
+  <meta name="description" content="CelerCrea builds premium websites, web apps, and automation for small businesses. Create swiftly. Ship clean." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,46 +48,8 @@
       overflow-x:hidden;
     }
 
-    /* Aurora layer */
+    /* Background layers */
     .aurora{
-      /* Matrix vibe layer (subtle grid + scanlines) */
-.matrix{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -2;
-  opacity: .35;
-  background:
-    /* vertical grid */
-    linear-gradient(to right, rgba(53,211,255,.07) 1px, transparent 1px),
-    /* horizontal grid */
-    linear-gradient(to bottom, rgba(53,211,255,.05) 1px, transparent 1px),
-    /* scanlines */
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,.03),
-      rgba(255,255,255,.03) 1px,
-      transparent 2px,
-      transparent 6px
-    );
-  background-size: 48px 48px, 48px 48px, auto;
-  mix-blend-mode: screen;
-  filter: blur(.0px);
-}
-
-.matrixGlow{
-  position: fixed;
-  inset: -10%;
-  pointer-events: none;
-  z-index: -3;
-  opacity: .55;
-  background:
-    radial-gradient(closest-side at 20% 10%, rgba(53,211,255,.22), transparent 55%),
-    radial-gradient(closest-side at 80% 15%, rgba(53,211,255,.14), transparent 55%),
-    radial-gradient(closest-side at 55% 85%, rgba(53,211,255,.10), transparent 55%);
-  filter: blur(50px);
-}
-
       position:fixed; inset:-20%;
       pointer-events:none;
       filter: blur(40px);
@@ -103,6 +65,39 @@
     @keyframes drift{
       from{ transform: translate(-2%, -1%) scale(1.0) }
       to{ transform: translate(2%, 1%) scale(1.05) }
+    }
+
+    .matrix{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      opacity: .35;
+      background:
+        linear-gradient(to right, rgba(53,211,255,.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(53,211,255,.05) 1px, transparent 1px),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,.03),
+          rgba(255,255,255,.03) 1px,
+          transparent 2px,
+          transparent 6px
+        );
+      background-size: 48px 48px, 48px 48px, auto;
+      mix-blend-mode: screen;
+    }
+
+    .matrixGlow{
+      position: fixed;
+      inset: -10%;
+      pointer-events: none;
+      z-index: -3;
+      opacity: .55;
+      background:
+        radial-gradient(closest-side at 20% 10%, rgba(53,211,255,.22), transparent 55%),
+        radial-gradient(closest-side at 80% 15%, rgba(53,211,255,.14), transparent 55%),
+        radial-gradient(closest-side at 55% 85%, rgba(53,211,255,.10), transparent 55%);
+      filter: blur(50px);
     }
 
     a{color:inherit}
@@ -219,8 +214,13 @@
     .sub{
       color: var(--muted);
       font-size: 16px;
-      max-width: 58ch;
-      margin:0 0 22px;
+      max-width: 62ch;
+      margin:0 0 10px;
+    }
+    .forwho{
+      color: rgba(234,242,255,.78);
+      font-size: 14px;
+      margin: 0 0 22px;
     }
     .cta-row{
       display:flex; gap:12px; align-items:center; flex-wrap:wrap;
@@ -567,6 +567,8 @@
 </head>
 
 <body>
+  <div class="matrixGlow" aria-hidden="true"></div>
+  <div class="matrix" aria-hidden="true"></div>
   <div class="aurora" aria-hidden="true"></div>
 
   <header class="topbar">
@@ -587,383 +589,3 @@
           <a href="#pricing">Packages</a>
           <a href="#contact">Contact</a>
         </div>
-
-        <a class="btn primary" href="#contact" aria-label="Start a project">
-          Start a project →
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div class="reveal">
-            <div class="kicker"><span class="dot"></span> Web • Apps • Automation (small-business friendly)</div>
-
-            <h1>Premium builds, done fast.<br/>No chaos. No fluff.</h1>
-            <p class="sub">
-              CelerCrea designs and develops modern websites, web apps, and automation that look premium,
-              load fast, and convert. You get clean execution and a process that doesn’t waste your time.
-            </p>
-
-            <div class="cta-row">
-              <a class="btn primary" href="#work">See work →</a>
-              <a class="btn" href="#contact">Get a quote</a>
-              <a class="btn" href="#services" style="background:rgba(255,255,255,.04);">What I build</a>
-            </div>
-
-            <div class="meta-row" aria-label="Highlights">
-              <div class="meta-pill"><i class="c"></i> Fast turnaround</div>
-              <div class="meta-pill"><i class="e"></i> SEO + performance</div>
-              <div class="meta-pill"><i></i> Secure-by-default</div>
-              <div class="meta-pill"><i></i> Mobile-first</div>
-            </div>
-          </div>
-
-          <!-- MOCK PANEL -->
-          <div class="panel mock reveal" aria-label="Preview dashboard">
-            <div class="mock-top">
-              <div class="mock-title">
-                <span style="width:10px;height:10px;border-radius:999px;background:rgba(53,211,255,.7);box-shadow:0 0 0 6px rgba(53,211,255,.10)"></span>
-                Project Console
-              </div>
-              <div class="chips">
-                <div class="chip">Performance</div>
-                <div class="chip">SEO</div>
-                <div class="chip">Security</div>
-              </div>
-            </div>
-
-            <div class="mock-grid">
-              <div class="stat">
-                <b>95+</b>
-                <span>Lighthouse target</span>
-              </div>
-              <div class="stat">
-                <b>&lt; 1.0s</b>
-                <span>Perceived load</span>
-              </div>
-              <div class="stat">
-                <b>Clean</b>
-                <span>Modern UI system</span>
-              </div>
-            </div>
-
-            <div class="pipeline" aria-label="Build pipeline">
-              <div class="pipe-row">
-                <b style="font-family:'Space Grotesk',Inter,sans-serif;">Build → Test → Deploy</b>
-                <small>live preview</small>
-              </div>
-              <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
-              <div class="ticks" aria-hidden="true">
-                <span class="active">Design</span>
-                <span class="active">Build</span>
-                <span>QA</span>
-                <span>Launch</span>
-              </div>
-              <div style="margin-top:12px; color:var(--muted); font-size:13px;">
-                Deliverables are tracked, predictable, and versioned, so you always know what’s next.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CREDIBILITY STRIP -->
-    <section style="padding-top:10px;">
-      <div class="wrap reveal">
-        <div class="panel" style="padding:14px 16px; border-radius:18px;">
-          <div style="display:flex; flex-wrap:wrap; gap:10px; color:rgba(234,242,255,.85); font-size:13px;">
-            <span class="tag">Mobile-first</span>
-            <span class="tag">Fast loading</span>
-            <span class="tag">SEO-ready</span>
-            <span class="tag">Accessible UI</span>
-            <span class="tag">Secure builds</span>
-            <span class="tag">Clean handoff</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>What I build</h2>
-            <p class="lead">High-quality builds for small businesses that want premium results without enterprise nonsense.</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card reveal">
-            <h3>Websites that convert</h3>
-            <p>Premium, modern marketing sites with speed, SEO fundamentals, and clean CTA flow.</p>
-            <div class="tagrow">
-              <span class="tag">Design system</span><span class="tag">Performance</span><span class="tag">SEO</span>
-            </div>
-          </div>
-
-          <div class="card reveal">
-            <h3>Web apps & dashboards</h3>
-            <p>Portals, internal tools, booking systems, admin panels — built to scale and stay maintainable.</p>
-            <div class="tagrow">
-              <span class="tag">Auth-ready</span><span class="tag">CRUD</span><span class="tag">APIs</span>
-            </div>
-          </div>
-
-          <div class="card reveal">
-            <h3>Automation & integrations</h3>
-            <p>Forms → emails → CRM → reporting. Reduce busywork and make your business run smoother.</p>
-            <div class="tagrow">
-              <span class="tag">Workflows</span><span class="tag">Zap/Make</span><span class="tag">Custom scripts</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section id="work">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Featured work</h2>
-            <p class="lead">.</p>
-          </div>
-          <a class="btn" href="#contact">Want something like this? →</a>
-        </div>
-
-        <div class="grid-3">
-          <div class="card work-card reveal">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="row">
-              <div>
-                <b>Trade business redesign</b>
-                <div class="mini">Before/after, speed improvements</div>
-              </div>
-              <a class="link" href="#contact">Request demo</a>
-            </div>
-            <p>Modern layout, service pages, lead form, and fast-loading media.</p>
-          </div>
-
-          <div class="card work-card reveal">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="row">
-              <div>
-                <b>Appointment + intake flow</b>
-                <div class="mini">Automation + email confirmations</div>
-              </div>
-              <a class="link" href="#contact">Request demo</a>
-            </div>
-            <p>Reduced back-and-forth with automated scheduling + follow-ups.</p>
-          </div>
-
-          <div class="card work-card reveal">
-            <div class="thumb" aria-hidden="true"></div>
-            <div class="row">
-              <div>
-                <b>Client portal concept</b>
-                <div class="mini">Auth + dashboard UI</div>
-              </div>
-              <a class="link" href="#contact">Request demo</a>
-            </div>
-            <p>Clean dashboards, role-based access, and scalable structure.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>How we ship clean</h2>
-            <p class="lead">Fast doesn’t mean sloppy. You get a simple process with clear milestones.</p>
-          </div>
-        </div>
-
-        <div class="steps">
-          <div class="step reveal">
-            <div class="n">1</div>
-            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Discover</h3>
-            <p>Goals, audience, offer, and what “success” means for your business.</p>
-          </div>
-          <div class="step reveal">
-            <div class="n">2</div>
-            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Design</h3>
-            <p>Layout + style system. You approve direction before heavy build starts.</p>
-          </div>
-          <div class="step reveal">
-            <div class="n">3</div>
-            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Build</h3>
-            <p>Modern frontend, clean structure, and performance-first decisions.</p>
-          </div>
-          <div class="step reveal">
-            <div class="n">4</div>
-            <h3 style="margin:0 0 6px; font-family:'Space Grotesk',Inter,sans-serif;">Launch</h3>
-            <p>QA + handoff. Optional hosting/maintenance so it stays fast and secure.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Packages</h2>
-            <p class="lead">Simple starting points. Final quotes depend on scope, content, and integrations.</p>
-          </div>
-        </div>
-
-        <div class="pricing">
-          <div class="price reveal">
-            <h3>Starter Site</h3>
-            <div class="amt">From $200</div>
-            <div class="mini">One-page or small site, fast launch</div>
-            <ul>
-              <li>Premium design + mobile-first</li>
-              <li>Contact/lead capture</li>
-              <li>Basic SEO + performance</li>
-            </ul>
-            <div style="margin-top:14px;">
-              <a class="btn" href="#contact">Get quote</a>
-            </div>
-          </div>
-
-          <div class="price featured reveal">
-            <div class="badge">Most popular</div>
-            <h3>Growth Site</h3>
-            <div class="amt">From $500</div>
-            <div class="mini">Service pages + conversion focus</div>
-            <ul>
-              <li>Multiple pages + sections</li>
-              <li>Copy guidance + UX flow</li>
-              <li>Analytics + tracking setup</li>
-            </ul>
-            <div style="margin-top:14px;">
-              <a class="btn primary" href="#contact">Get quote →</a>
-            </div>
-          </div>
-
-          <div class="price reveal">
-            <h3>App / Automation</h3>
-            <div class="amt">From $750</div>
-            <div class="mini">Dashboards, portals, workflows</div>
-            <ul>
-              <li>Auth-ready architecture</li>
-              <li>Integrations + automation</li>
-              <li>Maintenance option</li>
-            </ul>
-            <div style="margin-top:14px;">
-              <a class="btn" href="#contact">Discuss scope</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ + CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Let’s build something clean</h2>
-            <p class="lead">Tell me what you’re trying to launch. I’ll reply with next steps + a quote range.</p>
-          </div>
-        </div>
-
-        <div class="contact">
-          <div class="form reveal">
-            <form onsubmit="event.preventDefault(); alert('Form demo — wire this to email/CRM later.');">
-              <label for="name">Name</label>
-              <input id="name" name="name" autocomplete="name" placeholder="Your name" required>
-
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
-
-              <label for="type">What do you need?</label>
-              <input id="type" name="type" placeholder="Website / App / Automation">
-
-              <label for="msg">Project details</label>
-              <textarea id="msg" name="msg" placeholder="What are you building? Timeline? Any links?"></textarea>
-
-              <div style="display:flex; gap:10px; align-items:center; margin-top:14px; flex-wrap:wrap;">
-                <button class="btn primary" type="submit">Send inquiry →</button>
-                <span class="mini">Typical response: within 24 hours</span>
-              </div>
-            </form>
-          </div>
-
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <details class="reveal">
-              <summary>Do you only work locally?</summary>
-              <p>Nope, I'll work for you regardless of your locale. We can run the whole project via email, calls, and shared previews.</p>
-            </details>
-            <details class="reveal">
-              <summary>Can you host and maintain the site?</summary>
-              <p>Yes. I can host, monitor, update, and keep performance/security tight so you don’t think about it.</p>
-            </details>
-            <details class="reveal">
-              <summary>What do you need from me to start?</summary>
-              <p>Basic goals, services/products, any branding you already have, and examples of sites you like. Anything you want done, I'll make it happen!</p>
-            </details>
-
-            <div class="panel reveal" style="padding:18px; border-radius:20px;">
-              <h3 style="margin:0 0 8px; font-family:'Space Grotesk',Inter,sans-serif;">Quick credibility block</h3>
-              <p style="margin:0; color:var(--muted); font-size:14px;">
-                Bio: “I'm not only a developer, but an IT Director as well. I know what it takes to get it done, and the importance of getting it done right!”
-                Add: location: Phoenix, AZ, tools: HTML, Javascript, and CSS, and I'll aim to exceed your expecations.
-              </p>
-              <div class="tagrow" style="margin-top:12px;">
-                <span class="tag">Fast</span><span class="tag">Clean</span><span class="tag">Reliable</span><span class="tag">Modern UI</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="wrap">
-        <div class="foot">
-          <div>© <span id="year"></span> <b style="color:rgba(234,242,255,.9)">CelerCrea</b>. Create swiftly. Ship clean.</div>
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="link" href="#services">Services</a>
-            <a class="link" href="#work">Work</a>
-            <a class="link" href="#contact">Contact</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Progress bar animation
-    const bar = document.getElementById("progressBar");
-    requestAnimationFrame(() => { bar.style.width = "64%"; });
-
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Reveal on scroll
-    const els = Array.from(document.querySelectorAll(".reveal"));
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(el=>io.observe(el));
-  </script>
-</body>
-</html>
-
-
-
