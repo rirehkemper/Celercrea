@@ -128,9 +128,7 @@ ${msg || "(none provided)"}
         to: [env.TO_EMAIL],                 // safest as array
         subject,
         text: textBody,
-        // Resend API is picky depending on route; sending both avoids "why isn't reply-to working?"
-        reply_to: email,
-        replyTo: email,
+        replyTo: email,                     // Customer's email for easy replies
       }),
     });
 
