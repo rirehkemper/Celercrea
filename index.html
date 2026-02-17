@@ -852,6 +852,9 @@
               <label for="msg">Project details</label>
               <textarea id="msg" name="msg" placeholder="What are you building? Timeline? Any links?"></textarea>
 
+              <!-- Honeypot field for spam prevention (hidden from real users) -->
+              <input type="text" name="company" id="company" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+
               <div style="display:flex; gap:10px; align-items:center; margin-top:14px; flex-wrap:wrap;">
                 <button class="btn primary" type="submit">Send inquiry →</button>
                 <span class="mini">Typical response: within 24 hours</span>
@@ -859,9 +862,6 @@
 
               <div id="formStatus" class="mini" style="margin-top:10px; display:none;"></div>
 
-              <div class="mini" style="margin-top:10px;">
-                (Static site note: this opens an email draft for now. I’ll wire up a real form/CRM next.)
-              </div>
             </form>
           </div>
 
@@ -930,56 +930,83 @@
     }, { threshold: 0.12 });
     els.forEach(el=>io.observe(el));
 
-    // Static form -> mailto draft (opens email composer; user still must click Send)
+    // Contact form submission handler (uses Cloudflare Pages Function + Resend)
     document.getElementById("quoteForm").addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const status = document.getElementById("formStatus");
+
+      // Get form values
       const name  = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const type  = document.getElementById("type").value.trim();
       const msg   = document.getElementById("msg").value.trim();
+      const company = document.getElementById("company").value; // Honeypot
 
-      const subject = encodeURIComponent(
-        `CelerCrea inquiry — ${type || "Project request"} — ${name || "No name"}`
-      );
-
-      const bodyText =
-`Name: ${name || "(not provided)"}
-Email: ${email || "(not provided)"}
-Need: ${type || "(not specified)"}
-
-Details:
-${msg || "(none provided)"}
-`;
-
-      const body = encodeURIComponent(bodyText);
-
-      // ✅ Define BEFORE using it anywhere
-      const mailtoUrl = `mailto:hello@celercrea.com?subject=${subject}&body=${body}`;
-
-      // Status + fallback link
-      const status = document.getElementById("formStatus");
-      if (status) {
-        status.style.display = "block";
-        status.innerHTML =
-          `If your email app didn’t open, click: <a class="link" href="${mailtoUrl}">Email hello@celercrea.com</a><br>` +
-          `Tip: the email is a draft — you still need to press “Send”.`;
+      // Basic client-side validation
+      if (!name || !email) {
+        if (status) {
+          status.style.display = "block";
+          status.style.color = "#ff4444";
+          status.textContent = "Please fill in your name and email.";
+        }
+        return;
       }
 
-      // Clipboard copy (best-effort)
-      try {
-        if (navigator.clipboard?.writeText) {
-          await navigator.clipboard.writeText(bodyText);
-        }
-      } catch (_) {}
+      // Disable submit button during request
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
 
-      // Trigger mail client (often more reliable than window.location)
-      const a = document.createElement("a");
-      a.href = mailtoUrl;
-      a.style.display = "none";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      if (status) {
+        status.style.display = "block";
+        status.style.color = "#888";
+        status.textContent = "Sending your message...";
+      }
+
+      try {
+        const response = await fetch("/functions/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            type,
+            msg,
+            company, // Honeypot field
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.ok) {
+          // Success
+          if (status) {
+            status.style.color = "#22c55e";
+            status.innerHTML = "✓ Message sent! I'll get back to you within 24 hours.";
+          }
+          form.reset();
+        } else {
+          // Server error or validation error
+          if (status) {
+            status.style.color = "#ff4444";
+            status.textContent = data.error || "Failed to send message. Please try again.";
+          }
+        }
+      } catch (err) {
+        // Network error
+        if (status) {
+          status.style.color = "#ff4444";
+          status.textContent = "Network error. Please check your connection and try again.";
+        }
+      } finally {
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send inquiry →";
+      }
     });
   </script>
 </body>
