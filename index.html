@@ -1,10 +1,29 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CelerCrea — Create swiftly. Ship clean.</title>
   <meta name="description" content="CelerCrea builds premium websites, apps, and automation for small businesses. Create swiftly. Ship clean." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.svg" sizes="any">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://celercrea.com" />
+  <meta property="og:title" content="CelerCrea — Create swiftly. Ship clean." />
+  <meta property="og:description" content="Premium websites, web apps, and automation for small businesses. Fast delivery. Secure defaults. Clean handoff." />
+  <meta property="og:image" content="https://celercrea.com/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CelerCrea — Create swiftly. Ship clean." />
+  <meta name="twitter:description" content="Premium websites, web apps, and automation for small businesses. Fast delivery. Secure defaults. Clean handoff." />
+  <meta name="twitter:image" content="https://celercrea.com/og-image.svg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -425,20 +444,72 @@
     .thumb{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
-      background:
-        linear-gradient(135deg, rgba(53,211,255,.12), rgba(255,90,60,.10)),
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.10), transparent 55%),
-        rgba(255,255,255,.03);
-      height: 160px;
+      background: rgba(255,255,255,.03);
+      height: 180px;
       position:relative;
       overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
     }
-    .thumb:after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.16), transparent 55%);
-      transform: rotate(8deg);
-      opacity:.8;
+    .thumb-mockup{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      width:100%;
+      height:100%;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(170deg, rgba(53,211,255,.06), rgba(255,90,60,.04));
+      padding:10px;
+      overflow:hidden;
+    }
+    .thumb-bar{
+      display:flex; gap:5px; align-items:center; padding-bottom:6px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .thumb-dot{
+      width:6px; height:6px; border-radius:50%;
+    }
+    .thumb-dot:nth-child(1){ background:rgba(255,90,60,.6); }
+    .thumb-dot:nth-child(2){ background:rgba(255,200,60,.5); }
+    .thumb-dot:nth-child(3){ background:rgba(80,200,120,.5); }
+    .thumb-bar span{
+      margin-left:auto;
+      font-size:9px;
+      color:var(--muted2);
+      letter-spacing:.5px;
+      text-transform:uppercase;
+    }
+    .thumb-lines{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+      padding-top:4px;
+    }
+    .thumb-line{
+      height:5px;
+      border-radius:3px;
+      background: rgba(255,255,255,.06);
+    }
+    .thumb-line.accent{
+      background: linear-gradient(90deg, rgba(53,211,255,.25), rgba(255,90,60,.15));
+    }
+    .thumb-line.short{ width:55%; }
+    .thumb-line.med{ width:75%; }
+    .thumb-block{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:5px;
+      margin-top:auto;
+    }
+    .thumb-block > div{
+      height:22px;
+      border-radius:5px;
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
     }
     .work-card .row{
       display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
@@ -838,39 +909,85 @@
 
         <div class="grid-3">
           <div class="card work-card reveal">
-            <div class="thumb" aria-hidden="true"></div>
+            <div class="thumb">
+              <div class="thumb-mockup">
+                <div class="thumb-bar"><span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span><span>trade-co.com</span></div>
+                <div class="thumb-lines">
+                  <div class="thumb-line accent" style="width:45%"></div>
+                  <div class="thumb-line med"></div>
+                  <div class="thumb-line short"></div>
+                  <div class="thumb-block"><div></div><div></div><div></div><div></div></div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div>
                 <b>Trade business redesign</b>
-                <div class="mini">Before/after, speed improvements</div>
+                <div class="mini">Demo build · Small business site</div>
               </div>
               <a class="link" href="#contact">Request demo</a>
             </div>
-            <p>Modern layout, service pages, lead form, and fast-loading media.</p>
+            <p>Modernize a small trade business site to improve lead capture and page speed.</p>
+            <ul style="margin:8px 0 0; padding:0 0 0 16px; color:var(--muted); font-size:13px;">
+              <li>Service pages with clear CTA flow</li>
+              <li>Contact / estimate request form</li>
+              <li>Performance pass targeting Core Web Vitals</li>
+            </ul>
           </div>
 
           <div class="card work-card reveal">
-            <div class="thumb" aria-hidden="true"></div>
+            <div class="thumb">
+              <div class="thumb-mockup">
+                <div class="thumb-bar"><span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span><span>bookings.app</span></div>
+                <div class="thumb-lines">
+                  <div class="thumb-line accent" style="width:60%"></div>
+                  <div class="thumb-line"></div>
+                  <div class="thumb-line short"></div>
+                  <div class="thumb-line med"></div>
+                  <div class="thumb-block"><div></div><div></div></div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div>
                 <b>Appointment + intake flow</b>
-                <div class="mini">Automation + email confirmations</div>
+                <div class="mini">Demo build · Scheduling automation</div>
               </div>
               <a class="link" href="#contact">Request demo</a>
             </div>
-            <p>Reduced back-and-forth with automated scheduling + follow-ups.</p>
+            <p>Reduce scheduling back-and-forth and missed appointments with automated workflows.</p>
+            <ul style="margin:8px 0 0; padding:0 0 0 16px; color:var(--muted); font-size:13px;">
+              <li>Booking flow with calendar integration</li>
+              <li>Automated confirmations + reminders</li>
+              <li>Intake form with simple admin view</li>
+            </ul>
           </div>
 
           <div class="card work-card reveal">
-            <div class="thumb" aria-hidden="true"></div>
+            <div class="thumb">
+              <div class="thumb-mockup">
+                <div class="thumb-bar"><span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span><span>portal.app</span></div>
+                <div class="thumb-lines">
+                  <div class="thumb-line accent" style="width:35%"></div>
+                  <div class="thumb-line"></div>
+                  <div class="thumb-block"><div></div><div></div><div></div><div></div></div>
+                  <div class="thumb-line short"></div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div>
                 <b>Client portal concept</b>
-                <div class="mini">Auth + dashboard UI</div>
+                <div class="mini">Demo build · Auth + dashboard</div>
               </div>
               <a class="link" href="#contact">Request demo</a>
             </div>
-            <p>Clean dashboards, role-based access, and scalable structure.</p>
+            <p>A clean, login-gated dashboard for files, project status, and client messaging.</p>
+            <ul style="margin:8px 0 0; padding:0 0 0 16px; color:var(--muted); font-size:13px;">
+              <li>Auth-ready layout with role-based patterns</li>
+              <li>Dashboard UI for status, files, messages</li>
+              <li>Scalable structure built to grow</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -923,15 +1040,16 @@
 
         <div class="pricing">
           <div class="price reveal">
-            <h3>Starter Site</h3>
-            <div class="amt">From $___</div>
-            <div class="mini">One-page or small site, fast launch</div>
+            <h3>Fast Launch Site</h3>
+            <div class="amt">From $1,200</div>
+            <div class="mini">Template-based · Fixed scope · 7–10 day launch</div>
             <ul>
               <li>Premium design + mobile-first</li>
-              <li>Contact/lead capture</li>
-              <li>Basic SEO + performance</li>
+              <li>Contact / lead capture form</li>
+              <li>Basic SEO + performance pass</li>
+              <li>1 revision round included</li>
             </ul>
-            <div style="margin-top:14px;">
+            <div style="margin-top:16px;">
               <a class="btn" href="#contact">Get quote</a>
             </div>
           </div>
@@ -939,31 +1057,39 @@
           <div class="price featured reveal">
             <div class="badge">Most popular</div>
             <h3>Growth Site</h3>
-            <div class="amt">From $___</div>
-            <div class="mini">Service pages + conversion focus</div>
+            <div class="amt">From $2,500</div>
+            <div class="mini">Multi-page · Conversion-focused · Analytics ready</div>
             <ul>
-              <li>Multiple pages + sections</li>
-              <li>Copy guidance + UX flow</li>
-              <li>Analytics + tracking setup</li>
+              <li>Multiple pages + service sections</li>
+              <li>Copy guidance + CTA / UX flow</li>
+              <li>Analytics + conversion tracking setup</li>
+              <li>2 revision rounds included</li>
             </ul>
-            <div style="margin-top:14px;">
+            <div style="margin-top:16px;">
               <a class="btn primary" href="#contact">Get quote →</a>
             </div>
           </div>
 
           <div class="price reveal">
             <h3>App / Automation</h3>
-            <div class="amt">From $___</div>
-            <div class="mini">Dashboards, portals, workflows</div>
+            <div class="amt">From $4,500</div>
+            <div class="mini">Portals, workflows, custom tools · Scoped per project</div>
             <ul>
               <li>Auth-ready architecture</li>
-              <li>Integrations + automation</li>
-              <li>Maintenance option</li>
+              <li>Integrations + workflow automation</li>
+              <li>Admin dashboards + CRUD</li>
+              <li>Maintenance plan available</li>
             </ul>
-            <div style="margin-top:14px;">
+            <div style="margin-top:16px;">
               <a class="btn" href="#contact">Discuss scope</a>
             </div>
           </div>
+        </div>
+
+        <div class="reveal" style="margin-top:20px; text-align:center;">
+          <p style="color:var(--muted); font-size:14px; margin:0;">
+            <strong style="color:var(--text);">Ongoing care:</strong> from $79/mo for hosting, updates, and monitoring. Scales with complexity.
+          </p>
         </div>
       </div>
     </section>
@@ -1022,14 +1148,21 @@
               <p>Basic goals, services/products, any branding you already have, and examples of sites you like.</p>
             </details>
 
-            <div class="panel reveal" style="padding:18px; border-radius:20px;">
-              <h3 style="margin:0 0 8px; font-family:'Space Grotesk',Inter,sans-serif;">Quick credibility block</h3>
-              <p style="margin:0; color:var(--muted); font-size:14px;">
-                Replace this with your real bio: “IT Director + developer. I build clean systems and ship fast.”
-                Add: location (optional), tools (optional), and one strong sentence about results.
+            <div class="panel reveal" style="padding:22px; border-radius:20px;">
+              <h3 style="margin:0 0 10px; font-family:'Space Grotesk',Inter,sans-serif;">About me</h3>
+              <p style="margin:0 0 12px; color:var(--muted); font-size:14px; line-height:1.7;">
+                I'm Allen — IT Manager and Acting IT Director for a multi-site school district in Phoenix.
+                I build websites and apps the same way I run infrastructure: secure defaults, reliable
+                performance, disciplined delivery, and clean handoff.
               </p>
-              <div class="tagrow" style="margin-top:12px;">
-                <span class="tag">Fast</span><span class="tag">Clean</span><span class="tag">Reliable</span><span class="tag">Modern UI</span>
+              <ul style="margin:0; padding:0 0 0 16px; color:var(--muted); font-size:13px; line-height:1.8;">
+                <li>Sole IT authority for 1,000+ users and 3,600+ devices</li>
+                <li>Implemented Duo MFA, Tanium EDR, and multi-tier backup/DR</li>
+                <li>Built enrollment system saving ~20 staff hours per cycle</li>
+                <li>Prior: airline pilot — structured decisions, crisis discipline</li>
+              </ul>
+              <div class="tagrow" style="margin-top:14px;">
+                <span class="tag">Infrastructure</span><span class="tag">Security</span><span class="tag">Automation</span><span class="tag">Clean builds</span>
               </div>
             </div>
           </div>

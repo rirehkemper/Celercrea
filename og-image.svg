@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1020"/>
+      <stop offset="100%" stop-color="#101830"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#35D3FF" stop-opacity=".20"/>
+      <stop offset="100%" stop-color="#35D3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="80%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#FF5A3C" stop-opacity=".15"/>
+      <stop offset="100%" stop-color="#FF5A3C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="55%" cy="80%" r="45%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Mark gradients -->
+    <radialGradient id="mc" cx="28%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#35D3FF" stop-opacity=".9"/>
+      <stop offset="100%" stop-color="#35D3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="me" cx="68%" cy="70%" r="55%">
+      <stop offset="0%" stop-color="#FF5A3C" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#FF5A3C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ms" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+  <rect width="1200" height="630" fill="url(#g3)"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(510, 190)">
+    <rect width="64" height="64" rx="18" fill="#0B1020"/>
+    <rect width="64" height="64" rx="18" fill="url(#mc)"/>
+    <rect width="64" height="64" rx="18" fill="url(#me)"/>
+    <rect width="64" height="64" rx="18" fill="url(#ms)"/>
+    <rect width="64" height="64" rx="18" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+  </g>
+
+  <!-- Brand text -->
+  <text x="600" y="310" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="700" font-size="48" fill="#EAF2FF" letter-spacing="1">CelerCrea</text>
+
+  <!-- Tagline -->
+  <text x="600" y="355" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="400" font-size="20" fill="#A8B4D2">Create swiftly. Ship clean.</text>
+
+  <!-- Description -->
+  <text x="600" y="410" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="400" font-size="16" fill="#7C8AA6">Premium websites, apps, and automation for small businesses</text>
+
+  <!-- Subtle border -->
+  <rect x="1" y="1" width="1198" height="628" rx="0" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+</svg>
