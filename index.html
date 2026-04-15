@@ -38,19 +38,61 @@
     html,body{height:100%}
     body{
       margin:0;
-      background:
-        radial-gradient(1200px 900px at 20% -10%, rgba(53,211,255,.18), transparent 55%),
-        radial-gradient(1000px 800px at 90% 5%, rgba(255,90,60,.14), transparent 55%),
-        radial-gradient(1100px 800px at 80% 35%, rgba(124,58,237,.09), transparent 50%),
-        radial-gradient(1000px 700px at 15% 55%, rgba(53,211,255,.10), transparent 50%),
-        radial-gradient(1100px 800px at 75% 70%, rgba(255,90,60,.08), transparent 50%),
-        radial-gradient(900px 700px at 40% 90%, rgba(124,58,237,.10), transparent 50%),
-        radial-gradient(900px 700px at 55% 110%, rgba(155,110,255,.10), transparent 50%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height:1.5;
       overflow-x:hidden;
+    }
+
+    /* ── Continuous background flow ─────────────────────────── */
+    /* One full-page layer with overlapping radial-gradients     */
+    /* that snake across the viewport — no per-section borders. */
+    .bgflow{
+      position:absolute;
+      top:0; left:0; right:0;
+      height:100%;
+      pointer-events:none;
+      z-index:-2;
+      background:
+        /* hero — top */
+        radial-gradient(1100px 700px at 18% 2%,  rgba(53,211,255,.20), transparent 55%),
+        radial-gradient(900px  600px at 85% 4%,  rgba(255,90,60,.15),  transparent 55%),
+        /* services zone — 15-30% */
+        radial-gradient(1000px 600px at 75% 16%, rgba(124,58,237,.09), transparent 50%),
+        radial-gradient(900px  550px at 20% 22%, rgba(53,211,255,.11), transparent 50%),
+        /* work zone — 30-45% */
+        radial-gradient(1000px 600px at 80% 34%, rgba(255,90,60,.10),  transparent 50%),
+        radial-gradient(800px  500px at 30% 40%, rgba(124,58,237,.08), transparent 50%),
+        /* process zone — 45-60% */
+        radial-gradient(900px  550px at 15% 52%, rgba(53,211,255,.09), transparent 50%),
+        radial-gradient(800px  500px at 70% 56%, rgba(124,58,237,.10), transparent 50%),
+        /* pricing zone — 60-75% */
+        radial-gradient(1000px 600px at 80% 68%, rgba(53,211,255,.10), transparent 50%),
+        radial-gradient(800px  500px at 25% 72%, rgba(255,90,60,.08),  transparent 50%),
+        /* contact / footer — 75-100% */
+        radial-gradient(900px  550px at 20% 84%, rgba(124,58,237,.09), transparent 50%),
+        radial-gradient(1000px 600px at 75% 90%, rgba(53,211,255,.10), transparent 50%),
+        radial-gradient(800px  500px at 50% 98%, rgba(255,90,60,.07),  transparent 50%);
+    }
+
+    /* Slow-drifting aurora — adds life on top of the static flow */
+    .aurora{
+      position:fixed; inset:-25%;
+      pointer-events:none;
+      filter: blur(60px);
+      opacity:.35;
+      z-index:-1;
+      background:
+        radial-gradient(closest-side at 28% 25%, rgba(53,211,255,.30), transparent 60%),
+        radial-gradient(closest-side at 72% 30%, rgba(255,90,60,.20), transparent 60%),
+        radial-gradient(closest-side at 50% 70%, rgba(124,58,237,.18), transparent 60%);
+      animation: drift 18s ease-in-out infinite alternate;
+      transform: translate3d(0,0,0);
+    }
+    @keyframes drift{
+      from{ transform: translate(-2%, -1%) scale(1.0) }
+      to{ transform: translate(2%, 1%) scale(1.05) }
     }
 
     /* Subtle noise grain for depth */
@@ -59,28 +101,9 @@
       position:fixed; inset:0;
       pointer-events:none;
       z-index:9999;
-      opacity:.025;
+      opacity:.022;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 180px;
-    }
-
-    /* Aurora layer */
-    .aurora{
-      position:fixed; inset:-20%;
-      pointer-events:none;
-      filter: blur(40px);
-      opacity:.55;
-      z-index:-1;
-      background:
-        radial-gradient(closest-side at 30% 30%, rgba(53,211,255,.35), transparent 60%),
-        radial-gradient(closest-side at 70% 35%, rgba(255,90,60,.25), transparent 60%),
-        radial-gradient(closest-side at 55% 75%, rgba(124,58,237,.22), transparent 60%);
-      animation: drift 14s ease-in-out infinite alternate;
-      transform: translate3d(0,0,0);
-    }
-    @keyframes drift{
-      from{ transform: translate(-2%, -1%) scale(1.0) }
-      to{ transform: translate(2%, 1%) scale(1.05) }
     }
 
     a{color:inherit}
@@ -323,41 +346,6 @@
       padding: 72px 0;
       position: relative;
       isolation: isolate;
-    }
-
-    /* Soft ambient glow per section */
-    .glow::before{
-      content:"";
-      position:absolute;
-      inset: -20% -30%;
-      pointer-events:none;
-      z-index:-1;
-      border-radius:50%;
-      filter: blur(80px);
-      opacity:.6;
-      transform: translate3d(0,0,0);
-    }
-    .glow-cyan::before{
-      background: radial-gradient(ellipse at 30% 40%, rgba(53,211,255,.14), transparent 65%);
-    }
-    .glow-ember::before{
-      background: radial-gradient(ellipse at 70% 50%, rgba(255,90,60,.10), transparent 65%);
-    }
-    .glow-purple::before{
-      background: radial-gradient(ellipse at 50% 50%, rgba(124,58,237,.10), transparent 65%);
-    }
-    .glow-mixed::before{
-      background:
-        radial-gradient(ellipse at 25% 40%, rgba(53,211,255,.10), transparent 55%),
-        radial-gradient(ellipse at 75% 60%, rgba(255,90,60,.08), transparent 55%);
-    }
-
-    /* Soft section divider */
-    .divider{
-      height:1px;
-      margin: 0 auto;
-      max-width: var(--max);
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.08) 30%, rgba(255,255,255,.08) 70%, transparent);
     }
 
     .section-head{
@@ -701,7 +689,8 @@
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" style="position:relative;">
+    <div class="bgflow" aria-hidden="true"></div>
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
@@ -780,7 +769,7 @@
     </section>
 
     <!-- CREDIBILITY STRIP -->
-    <section class="glow glow-cyan" style="padding-top:10px; padding-bottom:40px;">
+    <section style="padding-top:10px; padding-bottom:40px;">
       <div class="wrap reveal">
         <div class="panel" style="padding:14px 16px; border-radius:18px;">
           <div style="display:flex; flex-wrap:wrap; gap:10px; color:rgba(234,242,255,.85); font-size:13px;">
@@ -795,10 +784,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- SERVICES -->
-    <section id="services" class="glow glow-cyan">
+    <section id="services">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
@@ -838,10 +825,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- WORK -->
-    <section id="work" class="glow glow-ember">
+    <section id="work">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
@@ -891,10 +876,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- PROCESS -->
-    <section id="process" class="glow glow-purple">
+    <section id="process">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
@@ -928,10 +911,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- PRICING -->
-    <section id="pricing" class="glow glow-cyan">
+    <section id="pricing">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
@@ -987,10 +968,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- FAQ + CONTACT -->
-    <section id="contact" class="glow glow-mixed">
+    <section id="contact">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
