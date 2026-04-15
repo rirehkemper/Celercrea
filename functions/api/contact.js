@@ -9,10 +9,20 @@
  *   TO_EMAIL        – destination,    e.g. hello@celercrea.com
  */
 
+const ALLOWED_ORIGINS = [
+  "https://celercrea.com",
+  "https://www.celercrea.com",
+];
+
+function getAllowedOrigin(request) {
+  const origin = request.headers.get("Origin") || "";
+  return ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+}
+
 export async function onRequestPost(context) {
   const headers = {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "https://celercrea.com",
+    "Access-Control-Allow-Origin": getAllowedOrigin(context.request),
   };
 
   try {
@@ -125,11 +135,11 @@ export async function onRequestPost(context) {
 }
 
 /* Handle preflight for CORS */
-export async function onRequestOptions() {
+export async function onRequestOptions(context) {
   return new Response(null, {
     status: 204,
     headers: {
-      "Access-Control-Allow-Origin": "https://celercrea.com",
+      "Access-Control-Allow-Origin": getAllowedOrigin(context.request),
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
       "Access-Control-Max-Age": "86400",
