@@ -511,6 +511,12 @@
       border:1px solid rgba(255,255,255,.06);
       background: rgba(255,255,255,.02);
     }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:14px;
+    }
     .work-card .row{
       display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
     }
@@ -902,7 +908,7 @@
         <div class="section-head reveal">
           <div>
             <h2>Featured work</h2>
-            <p class="lead">Swap these “spec projects” with real client case studies as you book work.</p>
+            <p class="lead">Take a look.</p>
           </div>
           <a class="btn" href="#contact">Want something like this? →</a>
         </div>
@@ -910,83 +916,58 @@
         <div class="grid-3">
           <div class="card work-card reveal">
             <div class="thumb">
-              <div class="thumb-mockup">
-                <div class="thumb-bar"><span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span><span>trade-co.com</span></div>
-                <div class="thumb-lines">
-                  <div class="thumb-line accent" style="width:45%"></div>
-                  <div class="thumb-line med"></div>
-                  <div class="thumb-line short"></div>
-                  <div class="thumb-block"><div></div><div></div><div></div><div></div></div>
-                </div>
-              </div>
+              <img src="work-1.jpg" alt="Hometown Drywall & Stucco website" loading="lazy">
             </div>
             <div class="row">
               <div>
-                <b>Trade business redesign</b>
-                <div class="mini">Demo build · Small business site</div>
+                <b>Hometown Drywall &amp; Stucco</b>
+                <div class="mini">Client site · Local service business</div>
               </div>
-              <a class="link" href="#contact">Request demo</a>
+              <a class="link" href="#contact">View project</a>
             </div>
-            <p>Modernize a small trade business site to improve lead capture and page speed.</p>
+            <p>Modern, trust-forward site for a Wichita Falls drywall contractor — built for lead capture and clean UX.</p>
             <ul style="margin:8px 0 0; padding:0 0 0 16px; color:var(--muted); font-size:13px;">
-              <li>Service pages with clear CTA flow</li>
-              <li>Contact / estimate request form</li>
-              <li>Performance pass targeting Core Web Vitals</li>
+              <li>Service pages with strong CTA flow</li>
+              <li>Before/after project showcase</li>
+              <li>Mobile-optimized estimate request</li>
             </ul>
           </div>
 
           <div class="card work-card reveal">
             <div class="thumb">
-              <div class="thumb-mockup">
-                <div class="thumb-bar"><span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span><span>bookings.app</span></div>
-                <div class="thumb-lines">
-                  <div class="thumb-line accent" style="width:60%"></div>
-                  <div class="thumb-line"></div>
-                  <div class="thumb-line short"></div>
-                  <div class="thumb-line med"></div>
-                  <div class="thumb-block"><div></div><div></div></div>
-                </div>
-              </div>
+              <img src="work-2.jpg" alt="Small business app concepts — booking, analytics, coaching" loading="lazy">
             </div>
             <div class="row">
               <div>
-                <b>Appointment + intake flow</b>
-                <div class="mini">Demo build · Scheduling automation</div>
+                <b>Small business app concepts</b>
+                <div class="mini">Demo builds · Booking, e-commerce, coaching</div>
               </div>
-              <a class="link" href="#contact">Request demo</a>
+              <a class="link" href="#contact">View demos</a>
             </div>
-            <p>Reduce scheduling back-and-forth and missed appointments with automated workflows.</p>
+            <p>Interactive demo concepts: café reservations, e-commerce dashboards, and fitness coaching workflows.</p>
             <ul style="margin:8px 0 0; padding:0 0 0 16px; color:var(--muted); font-size:13px;">
-              <li>Booking flow with calendar integration</li>
-              <li>Automated confirmations + reminders</li>
-              <li>Intake form with simple admin view</li>
+              <li>Calendar-based booking + confirmations</li>
+              <li>Sales analytics + inventory management</li>
+              <li>Client progress tracking + messaging</li>
             </ul>
           </div>
 
           <div class="card work-card reveal">
             <div class="thumb">
-              <div class="thumb-mockup">
-                <div class="thumb-bar"><span class="thumb-dot"></span><span class="thumb-dot"></span><span class="thumb-dot"></span><span>portal.app</span></div>
-                <div class="thumb-lines">
-                  <div class="thumb-line accent" style="width:35%"></div>
-                  <div class="thumb-line"></div>
-                  <div class="thumb-block"><div></div><div></div><div></div><div></div></div>
-                  <div class="thumb-line short"></div>
-                </div>
-              </div>
+              <img src="work-3.jpg" alt="Premium business platform with project console" loading="lazy">
             </div>
             <div class="row">
               <div>
-                <b>Client portal concept</b>
-                <div class="mini">Demo build · Auth + dashboard</div>
+                <b>Premium business platform</b>
+                <div class="mini">Concept build · Full site + dashboard</div>
               </div>
-              <a class="link" href="#contact">Request demo</a>
+              <a class="link" href="#contact">View project</a>
             </div>
-            <p>A clean, login-gated dashboard for files, project status, and client messaging.</p>
+            <p>End-to-end business site with project console, analytics, and conversion-optimized layout.</p>
             <ul style="margin:8px 0 0; padding:0 0 0 16px; color:var(--muted); font-size:13px;">
-              <li>Auth-ready layout with role-based patterns</li>
-              <li>Dashboard UI for status, files, messages</li>
-              <li>Scalable structure built to grow</li>
+              <li>Custom project management console</li>
+              <li>Performance + analytics dashboard</li>
+              <li>Conversion-focused service pages</li>
             </ul>
           </div>
         </div>
@@ -1089,6 +1070,12 @@
         <div class="reveal" style="margin-top:20px; text-align:center;">
           <p style="color:var(--muted); font-size:14px; margin:0;">
             <strong style="color:var(--text);">Ongoing care:</strong> from $79/mo for hosting, updates, and monitoring. Scales with complexity.
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top:14px; text-align:center;">
+          <p style="color:var(--muted); font-size:14px; margin:0;">
+            🎖️ <strong style="color:var(--text);">Community pricing:</strong> Discounts available for military, teachers &amp; educators, and low-income households. <a class="link" href="#contact">Just ask.</a>
           </p>
         </div>
       </div>
