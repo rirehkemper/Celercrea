@@ -11,25 +11,34 @@ const sample = () => ({
  whyThisFits:'Less retyping',suggestedNextStep:'Consultation'}
 });
 function db() {
- const rows=new Map();
- return {rows,prepare(sql){let vals=[];return {
-   bind(...a){vals=a;return this},
-   async run(){
-     if(sql.startsWith('INSERT')){
-       if(rows.has(vals[0])) return {meta:{changes:0}};
-       rows.set(vals[0],{payload_digest:vals[1],state:'processing',receipt_id:null});
-       return {meta:{changes:1}};
-     }
-     if(sql.startsWith('UPDATE')){
-       const row=rows.get(vals.at(-1));
-       if(sql.includes("state='accepted'")){row.state='accepted';row.receipt_id=vals[0]}
-       else row.state='uncertain';
-       return {meta:{changes:1}};
-     }
-     throw Error('Unexpected SQL: '+sql);
-   },
-   async first(){return rows.get(vals[0])||null}
- }}; } };
+  const rows = new Map();
+  return {
+    rows,
+    prepare(sql) {
+      let vals = [];
+      return {
+        bind(...a) { vals = a; return this; },
+        async run() {
+          if (sql.startsWith('INSERT')) {
+            if (rows.has(vals[0])) return { meta: { changes: 0 } };
+            rows.set(vals[0], { payload_digest: vals[1], state: 'processing', receipt_id: null });
+            return { meta: { changes: 1 } };
+          }
+          if (sql.startsWith('UPDATE')) {
+            const row = rows.get(vals.at(-1));
+            if (sql.includes("state='accepted'")) {
+              row.state = 'accepted'; row.receipt_id = vals[0];
+            } else {
+              row.state = 'uncertain';
+            }
+            return { meta: { changes: 1 } };
+          }
+          throw Error('Unexpected SQL: ' + sql);
+        },
+        async first() { return rows.get(vals[0]) || null; },
+      };
+    },
+  };
 }
 function setup(send = async()=>Response.json({id:'mail_receipt_1'})) {
  const database=db(), calls=[];
