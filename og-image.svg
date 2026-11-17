@@ -1,12 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1523"/><stop offset="1" stop-color="#090e18"/></linearGradient><radialGradient id="h"><stop stop-color="#49dbd4" stop-opacity=".2"/><stop offset="1" stop-color="#49dbd4" stop-opacity="0"/></radialGradient></defs>
-<rect width="1200" height="630" fill="url(#bg)"/><circle cx="1000" cy="200" r="470" fill="url(#h)"/>
-<g opacity=".12" stroke="#63e7e0"><path d="M70 0V630M140 0V630M210 0V630M280 0V630M350 0V630M420 0V630M490 0V630M560 0V630M630 0V630M700 0V630M770 0V630M840 0V630M910 0V630M980 0V630M1050 0V630M1120 0V630"/><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M0 420H1200M0 490H1200M0 560H1200"/></g>
-<g transform="translate(88 83) scale(1.65)" fill="none" stroke="#63e7e0"><path d="M21 2 40 21 21 40 2 21 21 2Z" stroke-width="1.4"/><path d="M21 10v22M10 21h22" stroke-width="1.6"/><circle cx="21" cy="21" r="3.2" fill="#63e7e0"/></g>
-<text x="183" y="139" fill="#f0f7fa" font-size="39" font-family="Arial,sans-serif" font-weight="bold">CelerCrea</text>
-<text x="88" y="280" fill="#eaf3fa" font-size="77" font-family="Arial,sans-serif" font-weight="bold">Complex systems.</text>
-<text x="88" y="366" fill="#63e7e0" font-size="77" font-family="Arial,sans-serif" font-weight="bold">Clear solutions.</text>
-<path d="M88 431h1024" stroke="#355164"/>
-<text x="88" y="486" fill="#b5c9d9" font-size="29" font-family="Arial,sans-serif">SOFTWARE ENGINEERING   /   AI INTEGRATION   /   IT CONSULTING</text>
-<text x="88" y="552" fill="#78a8ad" font-size="22" font-family="Arial,sans-serif">Founder-led technical consulting · Phoenix, Arizona</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#203b5b"/><stop offset=".55" stop-color="#152844"/><stop offset="1" stop-color="#111e36"/></linearGradient>
+  <radialGradient id="cyan"><stop stop-color="#45dbe8" stop-opacity=".27"/><stop offset="1" stop-color="#45dbe8" stop-opacity="0"/></radialGradient>
+  <radialGradient id="violet"><stop stop-color="#a06cf0" stop-opacity=".3"/><stop offset="1" stop-color="#a06cf0" stop-opacity="0"/></radialGradient>
+  <radialGradient id="pink"><stop stop-color="#f87fbf" stop-opacity=".17"/><stop offset="1" stop-color="#f87fbf" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<ellipse cx="1045" cy="130" rx="535" ry="470" fill="url(#cyan)"/>
+<ellipse cx="150" cy="390" rx="460" ry="500" fill="url(#violet)"/>
+<ellipse cx="1010" cy="585" rx="390" ry="320" fill="url(#pink)"/>
+<g stroke="#8ee8e9" stroke-width="1" opacity=".12">
+  <path d="M60 0V630M120 0V630M180 0V630M240 0V630M300 0V630M360 0V630M420 0V630M480 0V630M540 0V630M600 0V630M660 0V630M720 0V630M780 0V630M840 0V630M900 0V630M960 0V630M1020 0V630M1080 0V630M1140 0V630"/>
+  <path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200M0 300H1200M0 360H1200M0 420H1200M0 480H1200M0 540H1200M0 600H1200"/>
+</g>
+<g transform="translate(88 72) scale(1.65)" fill="none" stroke="#72f0eb"><path d="M21 2 40 21 21 40 2 21 21 2Z" stroke-width="1.4"/><path d="M21 10v22M10 21h22" stroke-width="1.6"/><circle cx="21" cy="21" r="3.2" fill="#72f0eb"/></g>
+<g font-family="Arial,Helvetica,sans-serif">
+  <text x="179" y="129" fill="#f1f8fa" font-size="39" font-weight="bold">CelerCrea</text>
+  <text x="88" y="277" fill="#f4faff" font-size="77" font-weight="bold">Complex systems.</text>
+  <text x="88" y="362" fill="#72f0eb" font-size="77" font-weight="bold">Clear solutions.</text>
+  <path d="M88 430H1112" stroke="#6f83af" stroke-width="1.5"/>
+  <text x="88" y="486" fill="#d1dce7" font-size="27" letter-spacing="1">SOFTWARE ENGINEERING   /   AI INTEGRATION   /   IT CONSULTING</text>
+  <text x="88" y="553" fill="#c6a1f5" font-size="22" letter-spacing="1">FOUNDER-LED ENGINEERING · PHOENIX, ARIZONA</text>
+</g>
 </svg>

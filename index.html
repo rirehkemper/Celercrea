@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090e18">
+  <meta name="theme-color" content="#13243e">
   <meta name="description" content="CelerCrea is a founder-led engineering consultancy for custom software, AI integration, and IT infrastructure. Built and led by Allen Rehkemper in Phoenix, Arizona.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://celercrea.com/">
@@ -283,6 +283,7 @@
       *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
     }
   </style>
+  <link rel="stylesheet" href="./neon-gremlin.css">
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"ProfessionalService","name":"CelerCrea","url":"https://celercrea.com/","description":"Founder-led custom software engineering, AI integration, and IT consulting.","areaServed":"United States","founder":{"@type":"Person","name":"Allen Rehkemper"}}
   </script>
@@ -326,6 +327,7 @@
             <a class="btn btn-outline" href="#work">See the engineering work</a>
           </div>
           <div class="hero-credit"><span class="credit-dot"></span><span>Founder-led by Allen Rehkemper · M.S. Software Engineering · Enterprise IT operations experience</span></div>
+          <div class="retro-signal mono" aria-label="Brand signature: Build serious. Stay curious."><span class="retro-dot" aria-hidden="true"></span>BUILD SERIOUS. STAY CURIOUS.<span class="retro-bars" aria-hidden="true">▁ ▃ ▆ ▂ ▅</span></div>
         </div>
         <div class="hero-visual">
           <figure class="diagram" aria-label="Illustration showing how software, AI, and infrastructure connect">
@@ -343,7 +345,7 @@
               <div class="system-card core"><span class="mono">04 / Deliver</span><strong>Real outcomes</strong><small>Maintainable by design</small></div>
               <div class="system-center"><div><span>CELER<br>CREA</span><small>ENGINEERING</small></div></div>
             </div>
-            <figcaption class="diagram-caption">CONCEPTUAL SYSTEMS MAP · Not a live monitoring display</figcaption>
+            <figcaption class="diagram-caption">CONCEPTUAL SYSTEMS MAP · Not a live monitoring display <span class="neon-stamp">/ NEON NOIR</span></figcaption>
           </figure>
         </div>
       </div>
@@ -574,9 +576,19 @@
   <footer>
     <div class="wrap footer-inner">
       <p>© <span id="year">2026</span> CelerCrea · Engineered with intention.</p>
-      <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="https://github.com/rirehkemper" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#contact">Contact</a></div>
+      <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="https://github.com/rirehkemper" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#contact">Contact</a><button type="button" class="gremlin-summon" id="gremlinSummon" aria-controls="gremlinDock" title="Summon the CelerCrea gremlin">✧ Summon Glitch</button></div>
     </div>
   </footer>
+  <!-- Accessible, opt-out mascot layer; removed from the focus order while hidden. -->
+  <div class="gremlin-layer" id="gremlinLayer">
+    <div class="gremlin-bubble" id="gremlinBubble" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div class="gremlin-dock" id="gremlinDock" inert>
+      <button type="button" class="gremlin-button" id="gremlinButton" title="Talk to Glitch" aria-label="Talk to Glitch, the mischievous CelerCrea gremlin">
+        <img src="./glitch-gremlin.svg" alt="" width="122" height="140" decoding="async">
+      </button>
+      <button type="button" class="gremlin-dismiss" id="gremlinDismiss" aria-label="Hide Glitch for this visit" title="Hide gremlin">&times;</button>
+    </div>
+  </div>
   <script>
     (function(){
       "use strict";
@@ -637,5 +649,6 @@
       });
     })();
   </script>
+  <script src="./gremlin.js" defer></script>
 </body>
 </html>
