@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1523"/><stop offset="1" stop-color="#090e18"/></linearGradient><radialGradient id="h"><stop stop-color="#49dbd4" stop-opacity=".2"/><stop offset="1" stop-color="#49dbd4" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><circle cx="1000" cy="200" r="470" fill="url(#h)"/>
+<g opacity=".12" stroke="#63e7e0"><path d="M70 0V630M140 0V630M210 0V630M280 0V630M350 0V630M420 0V630M490 0V630M560 0V630M630 0V630M700 0V630M770 0V630M840 0V630M910 0V630M980 0V630M1050 0V630M1120 0V630"/><path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M0 420H1200M0 490H1200M0 560H1200"/></g>
+<g transform="translate(88 83) scale(1.65)" fill="none" stroke="#63e7e0"><path d="M21 2 40 21 21 40 2 21 21 2Z" stroke-width="1.4"/><path d="M21 10v22M10 21h22" stroke-width="1.6"/><circle cx="21" cy="21" r="3.2" fill="#63e7e0"/></g>
+<text x="183" y="139" fill="#f0f7fa" font-size="39" font-family="Arial,sans-serif" font-weight="bold">CelerCrea</text>
+<text x="88" y="280" fill="#eaf3fa" font-size="77" font-family="Arial,sans-serif" font-weight="bold">Complex systems.</text>
+<text x="88" y="366" fill="#63e7e0" font-size="77" font-family="Arial,sans-serif" font-weight="bold">Clear solutions.</text>
+<path d="M88 431h1024" stroke="#355164"/>
+<text x="88" y="486" fill="#b5c9d9" font-size="29" font-family="Arial,sans-serif">SOFTWARE ENGINEERING   /   AI INTEGRATION   /   IT CONSULTING</text>
+<text x="88" y="552" fill="#78a8ad" font-size="22" font-family="Arial,sans-serif">Founder-led technical consulting · Phoenix, Arizona</text>
+</svg>
