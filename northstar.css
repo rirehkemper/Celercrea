@@ -66,3 +66,7 @@ html.js .hero-side.is-dismissed{display:none}
 
 /* Integrate the cropped concept art into the illustrated hero, without a hard rectangular crop. */
 .glitch-peek img{mask-image:radial-gradient(ellipse 83% 88% at 68% 46%,#000 44%,transparent 91%);-webkit-mask-image:radial-gradient(ellipse 83% 88% at 68% 46%,#000 44%,transparent 91%)}
+
+/* The delayed mascot reveal must not introduce an invisible focus target. */
+html.js .glitch-peek{visibility:hidden}
+html.js .glitch-peek.is-visible{visibility:visible}

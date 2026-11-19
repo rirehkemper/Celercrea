@@ -18,8 +18,10 @@ A local Chromium headless check rendered an HTML/CSS/JS bundled equivalent with 
 - Desktop: 1440 × 1000
 - Tablet: 820 × 1180
 - Mobile: 390 × 844
+- Small mobile: 320 × 720
+- Wide desktop: 1920 × 1080
 
-Results: no uncaught JavaScript page errors, no duplicate HTML IDs, functional internal-anchor targets, and no horizontal page overflow at those viewport widths. Screenshots were captured during this check. Actual Cloudflare deployment and external fonts were **not** tested.
+Results: no uncaught JavaScript page errors, no duplicate HTML IDs, functional internal-anchor targets, and no horizontal page overflow at those viewport widths. Functional checks also covered mobile menu, Escape closure, Glitch reveal/dismiss/summon, mocked success response for contact form, and reduced-motion suppression of the sprint. Screenshots were captured during this check. Actual Cloudflare deployment and external fonts were **not** tested.
 
 ## Follow-up production checklist
 
@@ -30,7 +32,7 @@ Results: no uncaught JavaScript page errors, no duplicate HTML IDs, functional i
 - [ ] Verify accessibility with keyboard/screen readers and audit actual contrast ratios.
 - [ ] Audit WebP asset encoding/caching, fonts, total page weight, and Lighthouse metrics.
 - [ ] Validate hero scene and Glitch positioning across very large monitors, landscape phones, and 200% zoom.
-- [ ] Generate a 1200x630 PNG Open Graph image for social platforms that don't display SVG OG images.
+- [ ] Review the committed 1200×630 PNG social preview in real platforms and verify their cache behavior.
 - [ ] Replace the two temporary cropped Glitch stills with transparent matched pose assets for even cleaner integration if desired.
 - [ ] Consolidate/remove legacy `neon-gremlin.css`, `gremlin.js`, and `glitch-gremlin.svg` once the deployed root is confirmed.
 
