@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 320" role="img" aria-labelledby="title desc">
+<title id="title">Glitch the cyber gremlin</title>
+<desc id="desc">A mischievous teal gremlin with pointed ears, purple goggles, a glowing gadget, a dark tech jacket and sneakers.</desc>
+<defs>
+  <linearGradient id="skin" x1=".1" y1="0" x2=".9" y2="1">
+    <stop stop-color="#8cf4d3"/><stop offset=".55" stop-color="#31b9ab"/><stop offset="1" stop-color="#167c90"/>
+  </linearGradient>
+  <linearGradient id="shade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a989f6"/><stop offset="1" stop-color="#623c9d"/></linearGradient>
+  <linearGradient id="jacket" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#344766"/><stop offset="1" stop-color="#152239"/></linearGradient>
+  <radialGradient id="lens"><stop stop-color="#c2ffff"/><stop offset=".55" stop-color="#65e8f3"/><stop offset="1" stop-color="#2b91c1"/></radialGradient>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  .eye{transform-box:fill-box;transform-origin:center;animation:glitch-blink 8s ease-in-out infinite}
+  .antenna{transform-origin:148px 58px;animation:antenna-dip 4.4s ease-in-out infinite}
+  @keyframes glitch-blink{0%,42%,45%,92%,95%,100%{transform:scaleY(1)}43.5%,93.5%{transform:scaleY(.09)}}
+  @keyframes antenna-dip{0%,100%{transform:rotate(0deg)}40%{transform:rotate(-8deg)}65%{transform:rotate(6deg)}}
+  @media(prefers-reduced-motion:reduce){.eye,.antenna{animation:none}}
+</style>
+<!-- soft cast shadow -->
+<ellipse cx="142" cy="308" rx="76" ry="9" fill="#081429" opacity=".35"/>
+<!-- mischievous serpentine tail -->
+<path d="M180 230Q236 207 246 244Q249 264 229 266Q245 252 224 246Q211 244 182 258" fill="none" stroke="#0b4c68" stroke-width="12" stroke-linecap="round"/>
+<path d="M183 231Q233 215 239 244" fill="none" stroke="#68ddd4" stroke-width="3" opacity=".7"/>
+<!-- shoes and legs -->
+<path d="M112 252L105 289L129 291L142 257M161 254L171 289L191 285L184 249" fill="#255f79" stroke="#11283c" stroke-width="5"/>
+<path d="M104 280Q88 279 78 293Q74 304 88 307H136Q147 306 140 296L126 281Z" fill="#202b4d" stroke="#0a1a2d" stroke-width="5"/>
+<path d="M172 280Q188 272 200 285Q208 294 202 303Q196 309 160 307Q147 306 154 295Z" fill="#263052" stroke="#0a1a2d" stroke-width="5"/>
+<path d="M81 301H137M161 301H202" stroke="#75e6e0" stroke-width="4" stroke-linecap="round"/>
+<!-- jacket and torso -->
+<path d="M104 174Q130 160 150 167Q185 166 196 196L191 262Q158 274 101 259L92 204Q92 186 104 174Z" fill="url(#jacket)" stroke="#0b2037" stroke-width="5"/>
+<path d="M112 182L140 219L166 179L183 203L166 255Q137 262 117 249L96 198Z" fill="#1f3653" stroke="#53618d" stroke-width="2"/>
+<path d="M140 216V261" stroke="#4ce3dd" stroke-width="3"/>
+<path d="M125 233h30" stroke="#a48de5" stroke-width="3" stroke-linecap="round"/>
+<path d="M98 195L74 230L86 240L115 216M188 192L211 226L201 238L177 213" fill="#263955" stroke="#101e33" stroke-width="5"/>
+<!-- hands -->
+<path d="M74 224Q57 231 64 243Q74 254 87 240Z" fill="url(#skin)" stroke="#0b5966" stroke-width="4"/>
+<path d="M210 224Q224 227 215 244Q205 250 198 237Z" fill="url(#skin)" stroke="#0b5966" stroke-width="4"/>
+<!-- pocket-sized circuit tile -->
+<g transform="rotate(-13 59 226)">
+<rect x="48" y="209" width="26" height="28" rx="5" fill="#4c327e" stroke="#ab8fff" stroke-width="3"/>
+<path d="M54 218h14M61 213v20M54 228h14" stroke="#79e8fa" stroke-width="1.5" opacity=".9"/>
+<circle cx="61" cy="224" r="3" fill="#a9ffef" filter="url(#glow)"/>
+</g>
+<!-- giant pointy ears BEHIND head -->
+<path d="M88 95Q52 65 15 56Q35 102 38 145Q52 166 92 133Z" fill="url(#skin)" stroke="#0b5367" stroke-width="6" stroke-linejoin="round"/>
+<path d="M68 111Q49 86 35 81Q44 110 46 135Z" fill="#ab7bc1" opacity=".8"/>
+<path d="M190 98Q233 57 263 60Q246 104 240 144Q228 167 186 138Z" fill="url(#skin)" stroke="#0b5367" stroke-width="6" stroke-linejoin="round"/>
+<path d="M214 110Q238 82 250 80Q243 110 233 136Z" fill="#ba80cb" opacity=".8"/>
+<!-- gremlin head -->
+<path d="M65 109Q61 64 90 43Q112 26 147 28Q194 25 217 70Q238 111 211 159Q190 190 142 195Q92 193 73 165Q61 139 65 109Z" fill="url(#skin)" stroke="#0b566d" stroke-width="6"/>
+<!-- head highlights -->
+<path d="M78 109Q79 74 102 58Q117 48 136 47" fill="none" stroke="#dbffe8" stroke-width="7" stroke-linecap="round" opacity=".26"/>
+<!-- cheek marks -->
+<path d="M83 143l-12 4m141-4 10 3" stroke="#0b6878" stroke-width="3" stroke-linecap="round"/>
+<!-- spiky hair -->
+<path d="M92 57L83 25L108 42L117 16L133 36L152 12L162 36L192 27L184 52" fill="#23294b" stroke="#121b37" stroke-width="4" stroke-linejoin="round"/>
+<path d="M121 29L128 46M152 23l-8 25" stroke="#a48bf8" stroke-width="4" stroke-linecap="round"/>
+<!-- retro visor and asymmetrical goggles -->
+<path d="M80 84Q138 63 206 80" fill="none" stroke="#302d60" stroke-width="12" stroke-linecap="round"/>
+<path d="M83 84Q139 66 203 81" fill="none" stroke="#8f70dd" stroke-width="4" stroke-linecap="round"/>
+<rect x="95" y="68" width="44" height="26" rx="12" fill="url(#shade)" stroke="#412964" stroke-width="4" transform="rotate(-9 117 81)"/>
+<rect x="100" y="73" width="34" height="16" rx="8" fill="url(#lens)" opacity=".85" transform="rotate(-9 117 81)"/>
+<rect x="144" y="64" width="44" height="26" rx="12" fill="url(#shade)" stroke="#412964" stroke-width="4" transform="rotate(8 166 77)"/>
+<rect x="149" y="69" width="34" height="16" rx="8" fill="url(#lens)" opacity=".7" transform="rotate(8 166 77)"/>
+<!-- eyebrows raised mischievously -->
+<path d="M89 115Q111 101 130 114M153 112Q176 96 195 110" stroke="#185d6e" stroke-width="7" fill="none" stroke-linecap="round"/>
+<!-- eyes -->
+<g class="eye">
+  <ellipse cx="113" cy="130" rx="17" ry="19" fill="#eaffee" stroke="#13586a" stroke-width="3"/>
+  <ellipse cx="171" cy="128" rx="17" ry="19" fill="#eaffee" stroke="#13586a" stroke-width="3"/>
+  <ellipse cx="119" cy="132" rx="7.5" ry="11" fill="#19435d"/>
+  <ellipse cx="178" cy="130" rx="7.5" ry="11" fill="#19435d"/>
+  <circle cx="122" cy="127" r="3.6" fill="#68faff" filter="url(#glow)"/>
+  <circle cx="181" cy="125" r="3.6" fill="#68faff" filter="url(#glow)"/>
+</g>
+<!-- nose and crooked grin -->
+<path d="M143 138l-7 11 12 1" stroke="#0e7082" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M106 159Q148 186 188 158Q160 196 123 179Z" fill="#18384b" stroke="#0a546b" stroke-width="3" stroke-linejoin="round"/>
+<path d="M124 169l8 13 7-10M165 173l6 8 7-13" fill="#fffaf3" stroke="#ecfdf6" stroke-width="2" stroke-linejoin="round"/>
+<!-- antenna with neon tip -->
+<g class="antenna"><path d="M149 53Q152 34 169 23" fill="none" stroke="#304568" stroke-width="5" stroke-linecap="round"/><circle cx="171" cy="21" r="7" fill="#ff78b7" filter="url(#glow)"/></g>
+</svg>
