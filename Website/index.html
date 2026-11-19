@@ -1,654 +1,72 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#13243e">
-  <meta name="description" content="CelerCrea is a founder-led engineering consultancy for custom software, AI integration, and IT infrastructure. Built and led by Allen Rehkemper in Phoenix, Arizona.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://celercrea.com/">
-  <meta property="og:title" content="CelerCrea | Software, AI & IT Engineering">
-  <meta property="og:description" content="Complex technology. Clear solutions. Custom software, intelligent workflows, and resilient IT infrastructure.">
-  <meta property="og:image" content="https://celercrea.com/og-image.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>CelerCrea — Software, AI &amp; IT Engineering</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script>document.documentElement.classList.add("js");</script>
-  <style>
-    :root{
-      color-scheme:dark;
-      --bg:#090e18;--bg2:#0d1522;--panel:#121e2f;--panel2:#162439;
-      --text:#eff5fb;--muted:#a6b6ca;--dim:#72859d;
-      --line:#28374c;--line-bright:#35526b;--cyan:#63e7e0;
-      --cyan-deep:#22adbf;--violet:#9b92ed;--gold:#d6b68c;
-      --serif:"Space Grotesk",sans-serif;--sans:"DM Sans",sans-serif;--mono:"JetBrains Mono",monospace;
-      --wide:1200px;
-    }
-    *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:95px}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
-    body::before{content:"";position:absolute;inset:0 0 auto;height:1150px;z-index:-2;pointer-events:none;background:
-      radial-gradient(ellipse 740px 650px at 83% 12%,rgba(36,140,168,.16),transparent 72%),
-      radial-gradient(ellipse 670px 420px at 11% 30%,rgba(96,63,160,.12),transparent 74%),
-      linear-gradient(180deg,#0c1320 0%,#090e18 86%)}
-    body::after{content:"";position:absolute;inset:0 0 auto;height:820px;z-index:-1;opacity:.22;pointer-events:none;
-      background-image:linear-gradient(to right,rgba(99,231,224,.075) 1px,transparent 1px),linear-gradient(to bottom,rgba(99,231,224,.075) 1px,transparent 1px);
-      background-size:62px 62px;mask-image:linear-gradient(#000,transparent 87%)}
-    a{color:inherit}button,input,select,textarea{font:inherit}
-    button{cursor:pointer}
-    :focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
-    ::selection{background:var(--cyan);color:#07131b}
-    .skip{position:fixed;top:-60px;left:14px;z-index:300;padding:10px 14px;background:var(--cyan);color:#08141a;border-radius:6px}
-    .skip:focus{top:12px}
-    .wrap{width:min(var(--wide),calc(100% - 64px));margin-inline:auto}
-    .mono{font:500 .72rem/1.5 var(--mono);letter-spacing:.115em;text-transform:uppercase}
-    .eyebrow{display:flex;align-items:center;gap:12px;color:var(--cyan);margin:0 0 20px}
-    .eyebrow::before{content:"";height:1px;width:26px;background:currentColor}
-    .section{padding:105px 0}
-    .section-head{max-width:720px;margin-bottom:42px}
-    .section-head h2{font:600 clamp(2rem,4vw,3.45rem)/1.08 var(--serif);letter-spacing:-.055em;margin:0 0 17px}
-    .section-head p:last-child{color:var(--muted);font-size:1.08rem;margin:0}
-    .accent{color:var(--cyan)}
-    .soft{color:var(--muted)}
-    .rule{border-top:1px solid var(--line)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;border-radius:8px;padding:13px 18px;font-weight:700;font-size:.92rem;transition:transform .2s,background .2s,border-color .2s}
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{background:var(--cyan);color:#07161d;border:1px solid var(--cyan);box-shadow:0 8px 32px rgba(99,231,224,.12)}
-    .btn-primary:hover{background:#8cf5ed}
-    .btn-outline{border:1px solid #465a71;background:rgba(15,25,40,.72);color:var(--text)}
-    .btn-outline:hover{border-color:var(--cyan);background:rgba(99,231,224,.07)}
-    .btn svg,.text-link svg{width:16px;height:16px}
-    .text-link{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:.89rem;font-weight:700;text-decoration:none}
-    .text-link:hover{text-decoration:underline}
-    header{position:sticky;top:0;z-index:100;background:rgba(9,14,24,.83);border-bottom:1px solid rgba(102,127,157,.22);backdrop-filter:blur(18px)}
-    .nav-bar{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:24px}
-    .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
-    .brand-mark{width:37px;height:37px;flex:none}
-    .brand-copy strong{display:block;font:700 1.16rem/.98 var(--serif);letter-spacing:-.045em}
-    .brand-copy small{display:block;margin-top:5px;color:var(--dim);font:.57rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
-    .nav-links{display:flex;align-items:center;gap:29px}
-    .nav-links>a:not(.nav-cta){font-size:.87rem;font-weight:600;color:var(--muted);text-decoration:none;transition:color .2s}
-    .nav-links>a:hover{color:var(--cyan)}
-    .nav-cta{border:1px solid rgba(99,231,224,.36);background:rgba(99,231,224,.07);padding:9px 14px;border-radius:6px;font-size:.82rem;font-weight:700;color:var(--cyan);text-decoration:none}
-    .nav-cta:hover{background:rgba(99,231,224,.15)}
-    .menu-toggle{display:none;background:transparent;border:1px solid var(--line-bright);color:var(--text);padding:8px 10px;border-radius:6px}
-    .menu-toggle svg{display:block;width:22px;height:22px}
-    .hero{padding:105px 0 60px}
-    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:44px;align-items:center}
-    .hero h1{font:600 clamp(3.7rem,6.8vw,6.5rem)/.97 var(--serif);letter-spacing:-.085em;max-width:770px;margin:0 0 28px}
-    .hero h1 span{color:var(--cyan)}
-    .hero-lede{font-size:1.14rem;color:var(--muted);max-width:590px;margin:0 0 30px;line-height:1.72}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .hero-credit{margin-top:37px;padding-top:22px;border-top:1px solid var(--line);display:flex;align-items:center;gap:13px;color:var(--dim);font-size:.78rem;line-height:1.5}
-    .credit-dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 6px rgba(99,231,224,.08);flex:none}
-    .hero-visual{position:relative;min-height:520px}
-    .diagram{position:absolute;inset:8px 0 0;margin:0;border:1px solid #2e4259;border-radius:17px;overflow:hidden;background:linear-gradient(153deg,rgba(25,43,63,.89),rgba(9,16,29,.93));box-shadow:0 34px 92px rgba(0,0,0,.28)}
-    .diagram::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(122,173,207,.26) 1px,transparent 1px);background-size:20px 20px;opacity:.27;mask-image:linear-gradient(140deg,#000,transparent 70%)}
-    .diagram::after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;top:20%;left:10%;background:radial-gradient(circle,rgba(99,231,224,.13),transparent 67%);filter:blur(8px);pointer-events:none}
-    .diagram-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:17px 20px}
-    .window-dots{display:flex;gap:6px}
-    .window-dots i{width:7px;height:7px;border-radius:50%;border:1px solid #71829a}
-    .diagram-top .mono{color:#9fb9c9;font-size:.6rem}
-    .diagram-surface{position:relative;height:405px}
-    .paths{position:absolute;width:100%;height:100%;inset:0;z-index:1;overflow:visible}
-    .paths path{fill:none;stroke:#426881;stroke-width:1.2;stroke-dasharray:5 7}
-    .paths .glow{stroke:var(--cyan);stroke-width:2;stroke-dasharray:10 15;animation:signal 12s linear infinite}
-    @keyframes signal{to{stroke-dashoffset:-250}}
-    .system-card{position:absolute;z-index:3;background:rgba(17,31,48,.97);border:1px solid #37506b;border-radius:9px;padding:14px 16px;box-shadow:0 15px 42px rgba(0,0,0,.22);min-width:152px}
-    .system-card strong{display:block;font:600 .93rem var(--serif);margin:5px 0}
-    .system-card small{font-size:.66rem;color:#8ca9bc}
-    .system-card .mono{font-size:.57rem;color:var(--cyan)}
-    .system-card.app{top:42px;left:6%}
-    .system-card.ai{top:42px;right:5%}
-    .system-card.infra{bottom:37px;left:6%}
-    .system-card.core{bottom:27px;right:5%;background:linear-gradient(140deg,#193745,#15283c);border-color:#4ba6aa}
-    .system-card.core .mono{color:#b0eee8}
-    .system-center{position:absolute;z-index:3;left:50%;top:51%;transform:translate(-50%,-50%);display:grid;place-items:center;width:138px;height:138px;border:1px solid #4a8191;border-radius:50%;background:radial-gradient(circle,rgba(28,69,83,.95),rgba(13,27,42,.98));box-shadow:0 0 0 12px rgba(99,231,224,.025),0 0 58px rgba(99,231,224,.1)}
-    .system-center span{font:700 1rem/1.1 var(--serif);letter-spacing:-.05em;text-align:center}
-    .system-center small{font:500 .5rem var(--mono);color:#a3dcd7;letter-spacing:.13em;margin-top:6px}
-    .diagram-caption{padding:13px 20px;border-top:1px solid var(--line);position:relative;color:#7992a7;font:.61rem/1.4 var(--mono);letter-spacing:.01em}
-    .cred-strip{padding:29px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .cred-list{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .cred-item{display:flex;align-items:center;gap:11px;color:#b7c7d6;font-size:.81rem;font-weight:600}
-    .cred-item::before{content:"+";font:600 1.1rem var(--mono);color:var(--cyan)}
-    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .service{position:relative;min-height:395px;background:linear-gradient(165deg,#152235,#101a2a);border:1px solid var(--line);padding:28px;border-radius:11px;overflow:hidden;transition:border-color .2s,transform .25s}
-    .service:hover{border-color:#4b6f81;transform:translateY(-4px)}
-    .service::after{content:"";position:absolute;top:-100px;right:-95px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(99,231,224,.085),transparent 72%);pointer-events:none}
-    .service-number{color:#7892ab}
-    .service-icon{height:65px;display:flex;align-items:center;color:var(--cyan)}
-    .service-icon svg{width:38px;height:38px;stroke-width:1.3}
-    .service h3{font:600 1.55rem/1.2 var(--serif);letter-spacing:-.04em;margin:8px 0 15px}
-    .service p{font-size:.93rem;color:var(--muted);margin:0}
-    .service-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:26px}
-    .tag{font:.62rem/1.5 var(--mono);color:#b1c7d4;border:1px solid #35495b;padding:6px 8px;border-radius:4px}
-    .work-section{background:linear-gradient(180deg,transparent,rgba(17,27,42,.43) 55%,transparent)}
-    .section-split{display:flex;align-items:end;justify-content:space-between;gap:24px}
-    .section-split .section-head{margin-bottom:38px}
-    .side-note{max-width:230px;font-size:.78rem;color:var(--dim);margin-bottom:40px}
-    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-    .work-card{background:#111b2a;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-    .case-visual{height:205px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(47,108,130,.2),transparent 75%),#0d1828;border-bottom:1px solid var(--line)}
-    .case-visual::before{content:"";position:absolute;inset:0;opacity:.24;background-image:linear-gradient(90deg,#2a5264 1px,transparent 1px),linear-gradient(#2a5264 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(#000,transparent)}
-    .ui-panel{position:relative;z-index:1;box-shadow:0 18px 32px rgba(0,0,0,.25);border:1px solid #37576e;background:#172638;border-radius:8px}
-    .ui-top{border-bottom:1px solid #34506a;display:flex;align-items:center;justify-content:space-between;padding:9px 12px;color:#bfd2df;font:.58rem var(--mono)}
-    .ui-top small{color:var(--cyan)}
-    .enrollment-ui{width:76%;height:170px;transform:translateY(21px) rotate(-2deg)}
-    .ui-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:14px}
-    .ui-field{height:22px;border:1px solid #3a566d;border-radius:3px;background:#203349}
-    .ui-field.wide{grid-column:span 2}
-    .ui-field.active{border-color:#5eb8bb;box-shadow:inset 0 0 0 1px rgba(99,231,224,.1)}
-    .tiny-btn{height:22px;background:#5de1d6;color:#09202a;border-radius:3px;text-align:center;font:700 .53rem/22px var(--mono)}
-    .atlas-ui{width:84%;height:167px;transform:translateY(19px) rotate(1.5deg)}
-    .kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px}
-    .kanban-col{min-height:123px;border:1px solid #30495f;border-radius:4px;padding:7px;background:#112032}
-    .kanban-label{font:.49rem var(--mono);color:#9db4c9;margin-bottom:7px}
-    .kanban-task{background:#254056;color:#d2e2e9;border:1px solid #3d5e73;padding:7px 5px;margin-bottom:6px;border-radius:3px;font:.5rem var(--mono)}
-    .kanban-task.alt{border-left:2px solid var(--cyan)}
-    .flow-demo{position:relative;z-index:1;display:flex;align-items:center;gap:7px;width:90%;justify-content:center}
-    .flow-box{width:28%;min-height:92px;display:grid;align-content:center;text-align:center;gap:6px;background:#182e42;border:1px solid #45657d;border-radius:7px;padding:8px 4px}
-    .flow-box b{font:600 .79rem var(--serif)}
-    .flow-box small{font:.54rem var(--mono);color:#81bdc5}
-    .flow-arrow{color:var(--cyan);font:700 1.3rem var(--mono)}
-    .infra-visual{display:flex;flex-direction:column;gap:9px;width:74%;position:relative;z-index:1}
-    .infra-line{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;border:1px solid #34546a;background:#172b40;border-radius:6px}
-    .infra-line span{font:.63rem var(--mono);color:#c5dae7}
-    .infra-line em{font:.59rem var(--mono);color:var(--cyan);font-style:normal}
-    .work-body{padding:26px}
-    .work-meta{font:.66rem var(--mono);letter-spacing:.065em;color:var(--cyan);text-transform:uppercase}
-    .work-body h3{font:600 1.55rem/1.16 var(--serif);letter-spacing:-.04em;margin:11px 0 12px}
-    .work-body p{color:var(--muted);margin:0;font-size:.92rem}
-    .work-body ul{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:20px 0 0}
-    .work-body li{font:.62rem var(--mono);color:#b3c5d5;padding:5px 7px;border:1px solid #2d4359;border-radius:4px}
-    .work-caption{color:#70869b;font:.61rem var(--mono);margin-top:16px}
-    .ai-band{padding:77px 0;background:radial-gradient(ellipse at 90% 35%,rgba(70,67,121,.16),transparent 55%),linear-gradient(120deg,#122033,#111925);border-block:1px solid var(--line)}
-    .ai-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:75px;align-items:center}
-    .ai-layout h2{font:600 clamp(2.1rem,3.7vw,3.45rem)/1.12 var(--serif);letter-spacing:-.055em;margin:0 0 18px}
-    .ai-layout p{color:var(--muted);margin:0 0 22px}
-    .ai-examples{display:flex;gap:9px;flex-wrap:wrap}
-    .ai-flow{display:grid;gap:10px}
-    .flow-step{display:grid;grid-template-columns:55px 1fr auto;align-items:center;gap:14px;padding:17px 20px;border:1px solid #34475f;border-radius:8px;background:rgba(10,20,32,.8)}
-    .flow-step strong{font:600 .97rem var(--serif)}
-    .flow-step span{font:.59rem var(--mono);color:var(--cyan)}
-    .flow-step small{font:.6rem var(--mono);color:#92a9b8}
-    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    .process-item{padding-top:18px;border-top:1px solid #3a6172}
-    .process-item .mono{color:var(--cyan)}
-    .process-item h3{font:600 1.24rem var(--serif);letter-spacing:-.03em;margin:23px 0 12px}
-    .process-item p{font-size:.91rem;color:var(--muted);margin:0}
-    .about{padding:80px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(20,31,47,.33)}
-    .about-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:88px}
-    .about-label{display:flex;align-items:center;gap:16px}
-    .about-crest{width:56px;height:56px;display:grid;place-items:center;color:var(--cyan);border:1px solid #4b7f89;border-radius:11px;background:linear-gradient(130deg,#203e4a,#111e30);font:700 1.3rem var(--serif)}
-    .about-label strong{font:600 1.18rem var(--serif)}
-    .about-label small{display:block;font:.61rem var(--mono);color:var(--dim);margin-top:4px}
-    .about h2{font:600 clamp(1.9rem,3.5vw,3.15rem)/1.15 var(--serif);letter-spacing:-.05em;margin:0 0 20px}
-    .about p{font-size:1rem;color:var(--muted);margin:0 0 18px}
-    .about-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
-    .contact-section{padding:105px 0 112px}
-    .contact-grid{display:grid;grid-template-columns:.83fr 1.17fr;gap:85px}
-    .contact-grid h2{font:600 clamp(2.35rem,4.2vw,3.9rem)/1.09 var(--serif);letter-spacing:-.065em;margin:0 0 20px}
-    .contact-grid .lede{color:var(--muted);font-size:1.04rem}
-    .contact-notes{padding-top:24px;margin-top:33px;border-top:1px solid var(--line);display:grid;gap:16px}
-    .contact-notes span{display:flex;gap:12px;align-items:center;font-size:.83rem;color:#a7b8c7}
-    .contact-notes b{font:700 1rem var(--mono);color:var(--cyan)}
-    .contact-form{border:1px solid #304459;border-radius:12px;background:linear-gradient(150deg,#172438,#111b2a);padding:29px}
-    .form-head{font:.7rem var(--mono);color:var(--cyan);letter-spacing:.11em;margin:0 0 24px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
-    .field{display:flex;flex-direction:column;gap:7px}
-    .field.full{grid-column:span 2}
-    .field label{font-size:.8rem;font-weight:600;color:#cbd9e6}
-    .field input,.field select,.field textarea{width:100%;border-radius:6px;background:#0c1726;border:1px solid #375066;color:var(--text);padding:12px 13px;outline:none;transition:border-color .2s,box-shadow .2s}
-    .field input::placeholder,.field textarea::placeholder{color:#6f849a}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(99,231,224,.10)}
-    .field textarea{min-height:140px;resize:vertical}
-    .form-bottom{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:23px}
-    .form-bottom .btn{border:0}
-    .form-bottom small{color:var(--dim);font-size:.73rem}
-    .form-status{min-height:24px;margin:15px 0 0;color:var(--muted);font-size:.83rem}
-    .form-status[data-kind="error"]{color:#f3aaac}
-    .form-status[data-kind="success"]{color:var(--cyan)}
-    .form-honeypot{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-    footer{border-top:1px solid var(--line);padding:28px 0 40px}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
-    .footer-inner p{margin:0;font-size:.78rem;color:var(--dim)}
-    .footer-links{display:flex;gap:21px;flex-wrap:wrap}
-    .footer-links a{font-size:.78rem;color:#a6bcce;text-decoration:none}
-    .footer-links a:hover{color:var(--cyan)}
-    @media(max-width:1100px){
-      .hero-grid{gap:25px}.hero h1{font-size:clamp(3.4rem,6.5vw,5rem)}
-      .ai-layout{gap:32px}.about-grid,.contact-grid{gap:42px}
-    }
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr}.hero{padding:76px 0 55px}
-      .hero-visual{min-height:440px;max-width:630px;width:100%;margin:auto}
-      .diagram-surface{height:325px}
-      .diagram{inset:0 0 0}
-      .cred-list{grid-template-columns:repeat(2,1fr);row-gap:18px}
-      .services-grid{grid-template-columns:1fr 1fr}
-      .service:last-child{grid-column:span 2;min-height:auto}
-      .ai-layout,.about-grid,.contact-grid{grid-template-columns:1fr;gap:35px}
-      .process-grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media(max-width:700px){
-      .wrap{width:min(var(--wide),calc(100% - 36px))}
-      .nav-bar{min-height:69px}
-      .menu-toggle{display:inline-flex}
-      .nav-links{gap:16px}
-      html:not(.js) .menu-toggle{display:none}
-      html:not(.js) .nav-links{position:absolute;top:69px;left:0;right:0;padding:24px;background:#0d1827;flex-direction:column;align-items:stretch}
-      html.js .nav-links{display:none;position:absolute;left:0;right:0;top:69px;padding:24px 18px 26px;background:#0d1827;border-bottom:1px solid var(--line);box-shadow:0 25px 45px rgba(0,0,0,.25);flex-direction:column;align-items:stretch}
-      html.js .nav-links[data-open="true"]{display:flex}
-      .nav-links>a:not(.nav-cta){font-size:1rem;padding:5px 3px}
-      .nav-cta{text-align:center}
-      .hero h1{font-size:clamp(3.2rem,12vw,5rem)}
-      .hero-visual{min-height:415px}
-      .diagram-surface{height:300px}
-      .system-card{min-width:110px;padding:10px}
-      .system-card strong{font-size:.73rem}
-      .system-card small{font-size:.52rem}
-      .system-card.app{left:3%}.system-card.ai{right:3%}.system-card.infra{left:3%}.system-card.core{right:3%}
-      .system-center{width:100px;height:100px}
-      .system-center span{font-size:.82rem}
-      .section{padding:77px 0}
-      .services-grid,.work-grid{grid-template-columns:1fr}
-      .service,.service:last-child{grid-column:auto;min-height:325px}
-      .section-split{display:block}.side-note{max-width:none;margin:-20px 0 30px}
-      .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
-    }
-    @media(max-width:420px){
-      .hero h1{font-size:3rem}
-      .hero-lede{font-size:1rem}
-      .btn{width:100%}
-      .hero-actions{flex-direction:column}
-      .cred-list{grid-template-columns:1fr}
-      .hero-visual{min-height:360px}
-      .diagram-surface{height:260px}
-      .system-card{min-width:97px;padding:8px}
-      .system-card small{display:none}
-      .system-card strong{font-size:.68rem}
-      .system-center{width:87px;height:87px}
-      .system-center span{font-size:.7rem}
-      .diagram-top{padding:11px}
-      .diagram-caption{font-size:.48rem;padding:10px}
-      .flow-step{grid-template-columns:30px 1fr;gap:6px}.flow-step small{display:none}
-      .contact-form{padding:19px}
-      .footer-inner{align-items:start;flex-direction:column}
-    }
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-    }
-  </style>
-  <link rel="stylesheet" href="./neon-gremlin.css">
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"ProfessionalService","name":"CelerCrea","url":"https://celercrea.com/","description":"Founder-led custom software engineering, AI integration, and IT consulting.","areaServed":"United States","founder":{"@type":"Person","name":"Allen Rehkemper"}}
-  </script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1930">
+<title>CelerCrea | Software, AI Integration &amp; IT Consulting</title>
+<meta name="description" content="CelerCrea is a founder-led technology consultancy for custom software, practical AI integration, and resilient IT infrastructure. Based in Phoenix, Arizona.">
+<meta property="og:type" content="website"><meta property="og:title" content="CelerCrea | Complex systems. Clear solutions."><meta property="og:description" content="Custom software, intelligent workflows, and resilient infrastructure — hands-on engineering from CelerCrea."><meta property="og:image" content="https://celercrea.com/og-image.svg"><meta property="og:url" content="https://celercrea.com/">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./northstar.css">
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"CelerCrea","url":"https://celercrea.com/","description":"Founder-led engineering consultancy for software development, AI integrations, and IT infrastructure.","areaServed":"United States","founder":{"@type":"Person","name":"Allen Rehkemper"}}</script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header>
-    <div class="wrap nav-bar">
-      <a class="brand" href="#top" aria-label="CelerCrea home">
-        <svg class="brand-mark" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-          <path d="M21 2 40 21 21 40 2 21 21 2Z" stroke="#63E7E0" stroke-width="1.3"/>
-          <path d="m21 9 12 12-12 12L9 21 21 9Z" stroke="#426B7B" stroke-width="1.2"/>
-          <path d="M21 13v16M13 21h16" stroke="#63E7E0" stroke-width="1.5"/>
-          <circle cx="21" cy="21" r="3.3" fill="#63E7E0"/>
-          <circle cx="21" cy="2" r="1.8" fill="#63E7E0"/>
-          <circle cx="40" cy="21" r="1.8" fill="#63E7E0"/>
-        </svg>
-        <span class="brand-copy"><strong>CelerCrea</strong><small>Engineering Studio</small></span>
-      </a>
-      <button type="button" class="menu-toggle" id="menuToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <nav class="nav-links" id="mainNav" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#work">Selected work</a>
-        <a href="#approach">Approach</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="nav-cta">Start a project ↗</a>
-      </nav>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="shell nav-row">
+    <a class="brand" href="#top" aria-label="CelerCrea home"><svg class="logo-symbol" viewBox="0 0 64 64" role="img" aria-label="CelerCrea logo"><defs><linearGradient id="brandGrad" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#32f5ed"/><stop offset=".6" stop-color="#9786ff"/><stop offset="1" stop-color="#ed4ed7"/></linearGradient></defs><path d="M19 5h31L40 17H24L13 32l12 16h16l10-12H34l-7 9-12-13 12-15" fill="none" stroke="url(#brandGrad)" stroke-width="8" stroke-linejoin="miter"/></svg><span>CelerCrea</span></a>
+    <button class="mobile-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    <nav id="mainNav" class="nav" aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav>
+    <a class="header-cta" href="#contact">Let's Talk <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-stage" aria-hidden="true"><div class="hero-glow"></div><div class="retro-sun"></div><div class="skyline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="horizon"></div><div class="floor-grid"></div></div>
+  <div class="shell hero-layout">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span>Founder-led consultancy</p>
+      <h1 id="hero-title">Complex systems.<br><em>Clear solutions.</em></h1>
+      <p class="hero-lead">Custom software, intelligent workflows, and resilient IT infrastructure — designed, built, and delivered with a founder's hands-on focus.</p>
+      <div class="hero-actions"><a class="btn btn-neon" href="#contact">Work With Me <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="#work">See My Work <span aria-hidden="true">→</span></a></div>
+      <p class="hero-proof"><span class="proof-dot"></span> Software engineer <b>·</b> IT leader <b>·</b> Phoenix, Arizona</p>
     </div>
-  </header>
-  <main id="main">
-    <section class="hero" id="top" aria-labelledby="heroTitle">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow mono">Software / AI / Infrastructure</p>
-          <h1 id="heroTitle">Complex systems.<br><span>Clear solutions.</span></h1>
-          <p class="hero-lede">From the software your team needs to the infrastructure it runs on, CelerCrea helps organizations build, integrate, and improve technology that actually moves work forward.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Let's solve something <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h13m-5-5 5 5-5 5"/></svg></a>
-            <a class="btn btn-outline" href="#work">See the engineering work</a>
-          </div>
-          <div class="hero-credit"><span class="credit-dot"></span><span>Founder-led by Allen Rehkemper · M.S. Software Engineering · Enterprise IT operations experience</span></div>
-          <div class="retro-signal mono" aria-label="Brand signature: Build serious. Stay curious."><span class="retro-dot" aria-hidden="true"></span>BUILD SERIOUS. STAY CURIOUS.<span class="retro-bars" aria-hidden="true">▁ ▃ ▆ ▂ ▅</span></div>
-        </div>
-        <div class="hero-visual">
-          <figure class="diagram" aria-label="Illustration showing how software, AI, and infrastructure connect">
-            <div class="diagram-top"><div class="window-dots"><i></i><i></i><i></i></div><span class="mono">Systems / Connected by design</span></div>
-            <div class="diagram-surface">
-              <svg class="paths" viewBox="0 0 480 405" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M140 100 C170 130 175 180 240 205 S350 128 368 101"/>
-                <path d="M140 303 C175 274 180 234 240 205 S330 270 367 303"/>
-                <path class="glow" d="M140 100 C170 130 175 180 240 205 S350 128 368 101"/>
-                <path class="glow" d="M140 303 C175 274 180 234 240 205 S330 270 367 303"/>
-              </svg>
-              <div class="system-card app"><span class="mono">01 / Build</span><strong>Custom software</strong><small>Apps + data</small></div>
-              <div class="system-card ai"><span class="mono">02 / Integrate</span><strong>AI workflows</strong><small>Tools + oversight</small></div>
-              <div class="system-card infra"><span class="mono">03 / Protect</span><strong>Infrastructure</strong><small>Identity + networks</small></div>
-              <div class="system-card core"><span class="mono">04 / Deliver</span><strong>Real outcomes</strong><small>Maintainable by design</small></div>
-              <div class="system-center"><div><span>CELER<br>CREA</span><small>ENGINEERING</small></div></div>
-            </div>
-            <figcaption class="diagram-caption">CONCEPTUAL SYSTEMS MAP · Not a live monitoring display <span class="neon-stamp">/ NEON NOIR</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="cred-strip" aria-label="Core working principles">
-      <div class="wrap cred-list">
-        <span class="cred-item">Production-minded engineering</span>
-        <span class="cred-item">Security-aware architecture</span>
-        <span class="cred-item">Practical AI integration</span>
-        <span class="cred-item">Direct access to the builder</span>
-      </div>
-    </section>
-
-    <section class="section" id="services" aria-labelledby="serviceTitle">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow mono">01 / What I do</p>
-          <h2 id="serviceTitle">One engineering partner.<br><span class="accent">Three disciplines.</span></h2>
-          <p>No disconnected handoffs between an app developer, a systems integrator, and an infrastructure specialist. Just clear thinking across the stack.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service">
-            <span class="service-number mono">Capability / 01</span>
-            <div class="service-icon">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"><rect x="5" y="7" width="30" height="26" rx="3"/><path d="M5 14h30M13 23l4 4-4 4M21 31h7"/></svg>
-            </div>
-            <h3>Custom Software<br>Engineering</h3>
-            <p>Internal tools, dashboards, APIs, and database-backed applications designed around how your people actually work.</p>
-            <div class="service-tags"><span class="tag">Business apps</span><span class="tag">Integrations</span><span class="tag">Data workflows</span></div>
-          </article>
-          <article class="service">
-            <span class="service-number mono">Capability / 02</span>
-            <div class="service-icon">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"><circle cx="20" cy="20" r="6"/><circle cx="7" cy="10" r="3"/><circle cx="33" cy="10" r="3"/><circle cx="7" cy="31" r="3"/><circle cx="33" cy="31" r="3"/><path d="M15 16 9 12M25 16l6-4M15 24l-6 5M25 24l6 5"/></svg>
-            </div>
-            <h3>AI Integration<br>&amp; Automation</h3>
-            <p>Thoughtful prototypes and workflow integrations that remove repetitive work while keeping quality, permissions, and human oversight visible.</p>
-            <div class="service-tags"><span class="tag">AI workflows</span><span class="tag">Document processing</span><span class="tag">API automation</span></div>
-          </article>
-          <article class="service">
-            <span class="service-number mono">Capability / 03</span>
-            <div class="service-icon">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"><rect x="5" y="6" width="30" height="10" rx="2"/><rect x="5" y="24" width="30" height="10" rx="2"/><path d="M11 11h2m4 0h2m-8 18h2m4 0h2M29 16v8"/><circle cx="29" cy="11" r="1"/><circle cx="29" cy="29" r="1"/></svg>
-            </div>
-            <h3>IT Systems<br>&amp; Infrastructure</h3>
-            <p>Networks, identity, security controls, virtualization, and resilient operations, informed by day-to-day responsibility for production systems.</p>
-            <div class="service-tags"><span class="tag">Architecture</span><span class="tag">Identity &amp; access</span><span class="tag">Reliability</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section work-section rule" id="work" aria-labelledby="workTitle">
-      <div class="wrap">
-        <div class="section-split">
-          <div class="section-head">
-            <p class="eyebrow mono">02 / Selected engineering work</p>
-            <h2 id="workTitle">Proof over <span class="accent">promises.</span></h2>
-            <p>Real problems, technical decisions, and working systems. A mix of production experience and clearly labeled independent applications.</p>
-          </div>
-          <p class="side-note">Project visuals below are explanatory diagrams, not screenshots of live systems.</p>
-        </div>
-        <div class="work-grid">
-          <article class="work-card">
-            <div class="case-visual" aria-hidden="true">
-              <div class="ui-panel enrollment-ui">
-                <div class="ui-top"><span>STUDENT ENROLLMENT / INTAKE</span><small>EN · ES</small></div>
-                <div class="ui-fields"><span class="ui-field wide active"></span><span class="ui-field"></span><span class="ui-field"></span><span class="ui-field wide"></span><span class="ui-field"></span><span class="tiny-btn">VALIDATE + ROUTE</span></div>
-              </div>
-            </div>
-            <div class="work-body">
-              <span class="work-meta">Production application · Professional work</span>
-              <h3>Bilingual Enrollment Platform</h3>
-              <p>Designed and deployed a district-hosted English/Spanish student intake system with validation, PostgreSQL storage, staff review workflows, and document generation. Ongoing maintenance and integration planning.</p>
-              <ul><li>Python / Flask</li><li>PostgreSQL</li><li>JavaScript</li><li>IIS / Waitress</li></ul>
-              <p class="work-caption">Built as part of an employed role; no client endorsement implied.</p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="case-visual" aria-hidden="true">
-              <div class="ui-panel atlas-ui">
-                <div class="ui-top"><span>ATLAS / PROJECT SPACE</span><small>WORKFLOWS</small></div>
-                <div class="kanban">
-                  <div class="kanban-col"><div class="kanban-label">BACKLOG</div><div class="kanban-task">Requirements</div><div class="kanban-task">Milestones</div></div>
-                  <div class="kanban-col"><div class="kanban-label">ACTIVE</div><div class="kanban-task alt">Role permissions</div></div>
-                  <div class="kanban-col"><div class="kanban-label">COMPLETE</div><div class="kanban-task">Audit history</div></div>
-                </div>
-              </div>
-            </div>
-            <div class="work-body">
-              <span class="work-meta">Independent application</span>
-              <h3>Atlas Projects</h3>
-              <p>A collaborative workspace with role-based permissions, tasks, milestones, decision history, work logs, recoverable archiving, and CSV workflows, supported by functional tests.</p>
-              <ul><li>Python / Flask</li><li>SQLite</li><li>Access controls</li><li>Testing</li></ul>
-              <p class="work-caption">Independent application; not presented as a client deployment.</p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="case-visual" aria-hidden="true">
-              <div class="flow-demo">
-                <div class="flow-box"><small>STEP / 01</small><b>Quote</b><small>Prepare</small></div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-box"><small>STEP / 02</small><b>Invoice</b><small>Generate</small></div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-box"><small>STEP / 03</small><b>Payment</b><small>Track</small></div>
-              </div>
-            </div>
-            <div class="work-body">
-              <span class="work-meta">Independent application</span>
-              <h3>TruVoice</h3>
-              <p>Business operations software connecting customers, catalogs, quotes, invoices, and payment tracking, with branded PDF output, reporting, audit logs, and access controls.</p>
-              <ul><li>Flask</li><li>SQLAlchemy</li><li>PDF generation</li><li>Reporting</li></ul>
-              <p class="work-caption">Independent application; functionality documented in the engineering portfolio.</p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="case-visual" aria-hidden="true">
-              <div class="infra-visual">
-                <div class="infra-line"><span>IDENTITY + ACCESS</span><em>CONTROL</em></div>
-                <div class="infra-line"><span>NETWORK + SECURITY</span><em>DESIGN</em></div>
-                <div class="infra-line"><span>VIRTUALIZATION + BACKUP</span><em>RECOVER</em></div>
-              </div>
-            </div>
-            <div class="work-body">
-              <span class="work-meta">Professional operations experience</span>
-              <h3>Enterprise IT &amp; Reliability</h3>
-              <p>Hands-on responsibility across multi-site networking, authentication, security operations, Windows servers, virtualization, backup, incident troubleshooting, and vendor coordination.</p>
-              <ul><li>Networking</li><li>Identity</li><li>Virtualization</li><li>Disaster recovery</li></ul>
-              <p class="work-caption">Generalized experience summary; confidential infrastructure details withheld.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="ai-band" id="ai" aria-labelledby="aiTitle">
-      <div class="wrap ai-layout">
-        <div>
-          <p class="eyebrow mono">03 / Intelligent systems</p>
-          <h2 id="aiTitle">AI should do useful work.<br><span class="accent">Not just look impressive.</span></h2>
-          <p>Models are only one part of a dependable solution. The surrounding architecture—data access, validation, permissions, human review, and measurable outcomes—is where a promising prototype becomes a trustworthy workflow.</p>
-          <div class="ai-examples"><span class="tag">Knowledge workflows</span><span class="tag">Document routing</span><span class="tag">Operations automation</span></div>
-        </div>
-        <div class="ai-flow" aria-label="Illustrative approach to AI integration">
-          <div class="flow-step"><span>01</span><strong>Connect the right inputs</strong><small>DATA + CONTEXT</small></div>
-          <div class="flow-step"><span>02</span><strong>Choose the right automation</strong><small>MODEL + RULES</small></div>
-          <div class="flow-step"><span>03</span><strong>Validate and review</strong><small>GUARDRAILS</small></div>
-          <div class="flow-step"><span>04</span><strong>Measure and improve</strong><small>OPERATIONS</small></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="approach" aria-labelledby="approachTitle">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow mono">04 / How I work</p>
-          <h2 id="approachTitle">Clarity from first call<br>to <span class="accent">final handoff.</span></h2>
-          <p>A practical process built to prevent surprises, respect your team's time, and make the result supportable after launch.</p>
-        </div>
-        <div class="process-grid">
-          <div class="process-item"><span class="mono">01 / Understand</span><h3>Find the real problem</h3><p>Map the workflow, existing constraints, users, risks, and what success needs to look like.</p></div>
-          <div class="process-item"><span class="mono">02 / Architect</span><h3>Make the tradeoffs clear</h3><p>Choose a right-sized approach, including costs, security needs, and maintenance implications.</p></div>
-          <div class="process-item"><span class="mono">03 / Deliver</span><h3>Build and validate</h3><p>Use checkpoints, functional testing, iteration, and visible progress as the solution takes shape.</p></div>
-          <div class="process-item"><span class="mono">04 / Sustain</span><h3>Leave it in good hands</h3><p>Document what matters, plan the handoff, and offer support appropriate to the system.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="about" aria-labelledby="aboutTitle">
-      <div class="wrap about-grid">
-        <div>
-          <p class="eyebrow mono">05 / Behind the work</p>
-          <div class="about-label">
-            <div class="about-crest" aria-hidden="true">AR</div>
-            <div><strong>Allen Rehkemper</strong><small>Founder · Engineer · Problem solver</small></div>
-          </div>
-        </div>
-        <div>
-          <h2 id="aboutTitle">An engineer who understands what happens <span class="accent">after launch.</span></h2>
-          <p>I work where software and operations meet. I've designed and maintained database-backed applications and carried responsibility for the networks, authentication, security, and servers those applications depend on.</p>
-          <p>That perspective shapes CelerCrea: engineering should solve the business problem, remain understandable to the people using it, and hold up in the real world.</p>
-          <div class="about-tags"><span class="tag">M.S. Software Engineering · 2026</span><span class="tag">B.S. Computer Science</span><span class="tag">Graduate Certificate · Cyber Organization</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact" aria-labelledby="contactTitle">
-      <div class="wrap contact-grid">
-        <div>
-          <p class="eyebrow mono">06 / Start here</p>
-          <h2 id="contactTitle">Have a tricky problem?<br><span class="accent">Good.</span></h2>
-          <p class="lede">Tell me what's slowing you down, what you need to build, or where your systems need a better plan. We'll start with a clear conversation about the next practical step.</p>
-          <div class="contact-notes">
-            <span><b>01</b> Software, AI integration, or IT consulting</span>
-            <span><b>02</b> Phoenix-based · Remote-friendly</span>
-            <span><b>03</b> Direct conversation with the engineer</span>
-          </div>
-        </div>
-        <div class="contact-form">
-          <p class="form-head">PROJECT INQUIRY / DIRECT CONTACT</p>
-          <form id="contactForm" method="post" action="/api/contact">
-            <div class="form-grid">
-              <div class="field"><label for="name">Your name *</label><input id="name" name="name" required autocomplete="name" maxlength="120" placeholder="Name"></div>
-              <div class="field"><label for="email">Work email *</label><input id="email" name="email" type="email" required autocomplete="email" maxlength="254" placeholder="you@company.com"></div>
-              <div class="field full"><label for="type">What can I help with?</label>
-                <select id="type" name="type">
-                  <option value="">Select a service (optional)</option>
-                  <option value="Custom software">Custom software development</option>
-                  <option value="AI integration">AI integration &amp; automation</option>
-                  <option value="IT consulting">IT systems &amp; infrastructure</option>
-                  <option value="Not sure yet">Not sure yet / something else</option>
-                </select>
-              </div>
-              <div class="field full"><label for="msg">What are you working on? *</label><textarea id="msg" name="message" required maxlength="4000" placeholder="Tell me about the challenge, what you have now, and what a good outcome would look like."></textarea></div>
-            </div>
-            <div class="form-honeypot" aria-hidden="true"><label for="company">Leave this field blank</label><input type="text" id="company" name="company" tabindex="-1" autocomplete="off"></div>
-            <div class="form-bottom">
-              <button type="submit" class="btn btn-primary" id="contactBtn">Send inquiry <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h13m-5-5 5 5-5 5"/></svg></button>
-              <small>No sales funnel. Just a real conversation.</small>
-            </div>
-            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="wrap footer-inner">
-      <p>© <span id="year">2026</span> CelerCrea · Engineered with intention.</p>
-      <div class="footer-links"><a href="#services">Services</a><a href="#work">Work</a><a href="https://github.com/rirehkemper" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#contact">Contact</a><button type="button" class="gremlin-summon" id="gremlinSummon" aria-controls="gremlinDock" title="Summon the CelerCrea gremlin">✧ Summon Glitch</button></div>
-    </div>
-  </footer>
-  <!-- Accessible, opt-out mascot layer; removed from the focus order while hidden. -->
-  <div class="gremlin-layer" id="gremlinLayer">
-    <div class="gremlin-bubble" id="gremlinBubble" role="status" aria-live="polite" aria-atomic="true"></div>
-    <div class="gremlin-dock" id="gremlinDock" inert>
-      <button type="button" class="gremlin-button" id="gremlinButton" title="Talk to Glitch" aria-label="Talk to Glitch, the mischievous CelerCrea gremlin">
-        <img src="./glitch-gremlin.svg" alt="" width="122" height="140" decoding="async">
-      </button>
-      <button type="button" class="gremlin-dismiss" id="gremlinDismiss" aria-label="Hide Glitch for this visit" title="Hide gremlin">&times;</button>
+    <div class="hero-side">
+      <button class="glitch-peek" id="glitchPeek" type="button" aria-label="Meet Glitch, CelerCrea's mischievous mascot" title="Meet Glitch"><img src="./assets/glitch-peek.webp" width="320" height="252" alt="" fetchpriority="high"></button>
+      <div class="glitch-callout" aria-hidden="true"><span>Meet Glitch</span><small>Our curious tech companion</small><svg viewBox="0 0 90 42"><path d="M0 33C38 34 41 2 85 6m-11-5 11 5-9 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="glitch-tooltip" id="glitchTooltip" role="status" aria-live="polite"></div><button type="button" id="dismissGlitch" class="glitch-dismiss" hidden aria-label="Hide Glitch for this session">×</button>
     </div>
   </div>
-  <script>
-    (function(){
-      "use strict";
-      var year=document.getElementById("year");
-      if(year) year.textContent=String(new Date().getFullYear());
-      var menu=document.getElementById("menuToggle");
-      var nav=document.getElementById("mainNav");
-      function closeMenu(){
-        if(!menu||!nav)return;
-        menu.setAttribute("aria-expanded","false");
-        menu.setAttribute("aria-label","Open navigation");
-        nav.removeAttribute("data-open");
-      }
-      if(menu&&nav){
-        menu.addEventListener("click",function(){
-          var open=menu.getAttribute("aria-expanded")==="true";
-          menu.setAttribute("aria-expanded",String(!open));
-          menu.setAttribute("aria-label",open?"Open navigation":"Close navigation");
-          if(open)nav.removeAttribute("data-open");else nav.setAttribute("data-open","true");
-        });
-        nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",closeMenu);});
-        document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
-        window.addEventListener("resize",function(){if(window.innerWidth>700)closeMenu();});
-      }
-      var form=document.getElementById("contactForm");
-      var btn=document.getElementById("contactBtn");
-      var status=document.getElementById("formStatus");
-      if(!form||!btn||!status)return;
-      function message(text,kind){status.textContent=text;status.dataset.kind=kind||"";}
-      form.addEventListener("submit",async function(e){
-        e.preventDefault();
-        if(btn.disabled)return;
-        var name=form.elements.namedItem("name").value.trim();
-        var email=form.elements.namedItem("email").value.trim();
-        var type=form.elements.namedItem("type").value.trim();
-        var msg=form.elements.namedItem("message").value.trim();
-        var company=form.elements.namedItem("company").value;
-        if(!name||!email||!msg){message("Please complete your name, email, and project details.","error");return;}
-        btn.disabled=true;
-        btn.setAttribute("aria-busy","true");
-        message("Sending your inquiry…","");
-        try{
-          var controller=new AbortController();
-          var timeout=setTimeout(function(){controller.abort();},15000);
-          var response;
-          try{
-            response=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:name,email:email,type:type,message:msg,company:company}),signal:controller.signal});
-          }finally{clearTimeout(timeout);}
-          var payload=await response.json().catch(function(){return null;});
-          if(!response.ok||!payload||!payload.ok)throw new Error("The message could not be delivered. Please try again.");
-          message("Message sent. Thanks for reaching out — I'll follow up by email.","success");
-          form.reset();
-        }catch(error){
-          message(error.name==="AbortError"?"The request timed out. Please try again.":error.message||"Unable to send. Please try again.","error");
-        }finally{
-          btn.disabled=false;btn.removeAttribute("aria-busy");
-        }
-      });
-    })();
-  </script>
-  <script src="./gremlin.js" defer></script>
-</body>
-</html>
+</section>
+<section class="services-section section-shell" id="services" aria-labelledby="services-title">
+  <div class="shell">
+    <div class="section-kicker center"><span></span><h2 id="services-title">How we help</h2><span></span></div>
+    <div class="service-grid">
+      <article class="service-card card-cyan"><div class="icon-frame"><svg viewBox="0 0 110 95" fill="none" aria-hidden="true"><path d="M16 14h79v53H16z" stroke="currentColor" stroke-width="4"/><path d="M7 76h97l-8 9H15z" fill="currentColor" opacity=".28" stroke="currentColor" stroke-width="2"/><path d="m42 35-10 8 10 8m25-16 10 8-10 8m-8-21-9 26" stroke="#65F4EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Software Engineering</h3><p>Custom applications, APIs, and business tools that turn complex workflows into dependable systems.</p><a href="#contact" aria-label="Discuss software engineering">Discuss a build <span aria-hidden="true">↗</span></a></div></article>
+      <article class="service-card card-violet"><div class="icon-frame"><svg viewBox="0 0 110 95" fill="none" aria-hidden="true"><path d="m55 13 38 21v34L55 89 17 68V34z" stroke="#B388FF" stroke-width="3"/><path d="m55 23 27 15v24L55 77 28 62V38z" fill="#6338A2" opacity=".52" stroke="#9A79FB" stroke-width="2"/><text x="55" y="57" text-anchor="middle" font-size="24" font-weight="bold" fill="#E9C9FF">AI</text><path d="M55 3v10m0 76v5M3 47h14m76 0h14" stroke="#65F4EE" stroke-width="2"/></svg></div><div><h3>AI Integration</h3><p>Practical AI workflows that assist people, reduce repetitive work, and include thoughtful safeguards.</p><a href="#contact" aria-label="Discuss AI integration">Explore integration <span aria-hidden="true">↗</span></a></div></article>
+      <article class="service-card card-blue"><div class="icon-frame"><svg viewBox="0 0 110 95" fill="none" aria-hidden="true"><path d="M26 13h59l14 18-12 21H22L9 31z" stroke="#69DFFF" stroke-width="3"/><path d="M21 57h69v14H21zm0 19h69v14H21z" stroke="#9A79FB" stroke-width="2"/><path d="M30 64h24m-24 19h24" stroke="#70F0EF" stroke-width="3" stroke-linecap="round"/><circle cx="79" cy="64" r="3" fill="#7BF9E3"/><circle cx="79" cy="83" r="3" fill="#7BF9E3"/></svg></div><div><h3>IT Consulting</h3><p>Secure, reliable infrastructure — from networks and identity to virtualization and recovery planning.</p><a href="#contact" aria-label="Discuss IT consulting">Plan your systems <span aria-hidden="true">↗</span></a></div></article>
+    </div>
+  </div>
+</section>
+<section class="work-section section-shell" id="work" aria-labelledby="work-title">
+  <div class="shell">
+    <div class="section-heading"><p class="section-kicker"><span></span><strong>Selected work</strong></p><h2 id="work-title">Real systems. Real engineering.</h2><p>From deployed applications to hands-on infrastructure responsibility, here is the work behind the promise.</p></div>
+    <div class="work-grid">
+      <article class="work-card"><div class="project-visual enrollment" aria-hidden="true"><div class="app-window"><div class="window-head"><span>Enrollment / Intake</span><span>EN · ES</span></div><div class="form-shapes"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="mini-submit">VALIDATE → APPROVE</div></div></div><div class="work-details"><span class="work-type">PRODUCTION · PROFESSIONAL WORK</span><h3>Student Enrollment Platform</h3><p>Bilingual student intake, validated workflows, PostgreSQL storage, and staff review tools.</p><div class="stack">Flask <b>·</b> PostgreSQL <b>·</b> JavaScript</div><span class="disclosure">Built in an employed role; not a client endorsement.</span></div></article>
+      <article class="work-card"><div class="project-visual atlas" aria-hidden="true"><div class="app-window"><div class="window-head"><span>Atlas / Project Space</span><span>ACTIVE</span></div><div class="kanban"><div><small>Backlog</small><i></i><i></i></div><div><small>In Progress</small><i></i><i></i></div><div><small>Completed</small><i></i><i></i></div></div></div></div><div class="work-details"><span class="work-type">INDEPENDENT APPLICATION</span><h3>Atlas Projects</h3><p>Collaborative project workspace featuring permissions, milestones, task boards, and work logs.</p><div class="stack">Python <b>·</b> Flask <b>·</b> SQLite</div><span class="disclosure">Independent application, not client delivery.</span></div></article>
+      <article class="work-card"><div class="project-visual infrastructure" aria-hidden="true"><div class="server-rack"><i></i><i></i><i></i><i></i><i></i></div><div class="server-rack rack-two"><i></i><i></i><i></i><i></i><i></i></div><span class="network-pulse"></span></div><div class="work-details"><span class="work-type">ENTERPRISE IT · PROFESSIONAL EXPERIENCE</span><h3>Infrastructure &amp; Reliability</h3><p>Multi-site networking, identity, security operations, virtualization, and recovery planning.</p><div class="stack">Networks <b>·</b> Security <b>·</b> Systems</div><span class="disclosure">Generalized description; sensitive details omitted.</span></div></article>
+    </div>
+    <p class="portfolio-note">These project illustrations are conceptual visuals, not customer dashboards or screenshots of private systems.</p>
+  </div>
+</section>
+<section class="cta-band" aria-labelledby="cta-title"><div class="shell cta-layout"><h2 id="cta-title">A hands-on partner<br>for <em>what's next.</em></h2><p>Strategy, engineering, and technology expertise — with the focus and accountability of a founder-led practice.</p><a class="btn btn-neon" href="#contact">Start a Conversation <span aria-hidden="true">↗</span></a><div class="runner-track" id="runnerTrack" aria-hidden="true"><img src="./assets/glitch-run.webp" width="210" height="180" alt=""></div></div></section>
+<section class="about-section section-shell" id="about"><div class="shell about-layout"><div><p class="section-kicker"><span></span><strong>Behind CelerCrea</strong></p><h2>Built by an engineer who understands <em>what happens after launch.</em></h2></div><div><p>I'm Allen Rehkemper, a software engineer and IT leader. I work across the boundary between applications and operations — from the code and database to the networks, servers, and security controls that keep them running.</p><p>That cross-disciplinary perspective guides CelerCrea: solve the business problem, make the system understandable, and leave it maintainable.</p><div class="credentials"><span>M.S. Software Engineering</span><span>B.S. Computer Science</span><span>Cyber Organization Graduate Certificate</span></div></div></div></section>
+<section class="approach-section section-shell" id="approach"><div class="shell"><p class="section-kicker"><span></span><strong>How we work</strong></p><h2>Clear process. Fewer surprises.</h2><div class="steps"><article><span>01</span><h3>Discover</h3><p>Understand the actual problem, people, and constraints.</p></article><article><span>02</span><h3>Design</h3><p>Choose sensible architecture and explain tradeoffs.</p></article><article><span>03</span><h3>Build</h3><p>Validate in stages and make progress visible.</p></article><article><span>04</span><h3>Hand off</h3><p>Document and support the result beyond launch.</p></article></div></div></section>
+<section class="contact-section section-shell" id="contact" aria-labelledby="contact-title"><div class="shell contact-layout"><div><p class="section-kicker"><span></span><strong>Let's talk</strong></p><h2 id="contact-title">What needs solving?</h2><p>Tell me what you're trying to build, improve, or untangle. I'll help identify the next practical step.</p><div class="contact-aside"><span>↗ Phoenix-based, remote-friendly</span><span>↗ Talk directly with the engineer</span></div></div><form id="contactForm" class="contact-form" method="post" action="/api/contact"><div class="form-grid"><div class="field"><label for="name">Your name *</label><input id="name" name="name" autocomplete="name" required maxlength="120" placeholder="Your name"></div><div class="field"><label for="email">Work email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@company.com"></div><div class="field full"><label for="type">What do you need?</label><select id="type" name="type"><option value="">Select a service (optional)</option><option value="Custom software">Custom software</option><option value="AI integration">AI integration &amp; automation</option><option value="IT consulting">IT consulting</option><option value="Other">Something else</option></select></div><div class="field full"><label for="msg">Project details *</label><textarea id="msg" name="message" required maxlength="4000" placeholder="Tell me the challenge and what success might look like."></textarea></div></div><div class="honeypot" aria-hidden="true"><label for="company">Leave blank</label><input id="company" name="company" tabindex="-1" autocomplete="off"></div><button type="submit" id="contactBtn" class="btn btn-neon">Send Inquiry <span aria-hidden="true">↗</span></button><p id="formStatus" role="status" aria-live="polite"></p></form></div></section>
+</main>
+<footer><div class="shell footer-layout"><a class="footer-brand" href="#top">CELERCREA <span>✦</span></a><span>© <span id="year">2026</span> CelerCrea · Build serious. Stay curious.</span><div><a href="#services">Services</a><a href="#work">Work</a><a href="https://github.com/rirehkemper" target="_blank" rel="noopener noreferrer">GitHub ↗</a><button type="button" id="summonGlitch">✧ Summon Glitch</button></div></div></footer>
+<script src="./site.js" defer></script>
+</body></html>
